@@ -1,0 +1,158 @@
+<!-- DOCTYPE html -->
+
+<html>
+  <head>
+    <title>Jotun Engine Renderer Documentation</title>
+  </head>
+
+  <body>
+    <h1>Renderer Documentation</h1>
+    <h2>High-level Overview</h2>
+    <p>
+      The Jotun Engine ships with a deferred renderer which makes use of
+      physically-based shading to achieve high-quality visuals.
+    </p>
+    <p>
+      The default renderer uses a number of passes:
+    </p>
+      <ol>
+        <li>One depth-only pass for each shadow-casting light which produces a
+          shadow map for that light. This pass uses frontface culling to cut
+          down on shadow acne.</li>
+        <li>A depth-only pass from the main camera's view. This pass uses
+          backface culling to get the depth of the closesttriangles to the
+          camera.</li>
+        <li>A depth-only pass from the main camera's view. This pass uses
+          frontface culling to get the thickness of the objects immediately
+          visible to the camera.</li>
+        <li>The gbuffer pass, which writes the material data of opaque materials
+          to the gbuffer.</li>
+        <li>One direct lighting pass per visible light, which calculates diffuse
+          and specular lighting for that light. Lighting is accumulated in the
+          lighting buffer.</li>
+        <li>A Sub-Surface Scattering pass, which applies a 4x4 (probably) Gaussian
+          box filter. The actual size of the filter varies with the data in the 
+          SSS texture, to allow for objects that have a SSS radius which varies
+          over the mesh. The SSS pass is executed in two steps, one for the
+          vertical direction and one for the horozontal. Additionally, the box
+          filter is oriented perpendicular to the current pixel's normal, and
+          doesn't add in pixels which have too great of a depth difference (or
+          maybe I'll use wrap lighitng? Seems less realistic).</li>
+        <li>One reflection pass, which utilizes a screen-space reflections
+          algorithm to generate reflected colors, combines those colors with the
+          specular color, adds in the lighting data, and outputs to the composite
+          buffer.<br/>
+          NOTE: If additional reflection passes are desired (to simulate light
+          bouncing multiple times), they are calculated before this pass.</li>
+        <li>One refraction pass, which relies on the density of objects to 
+          calculate refraction. However, rather than using raytracing like the 
+          reflection pass, this pass draws all refractive objects using the depth
+          of the current pixel before the depth of the refractive pixel is
+          saved, using a simple right triangle to calculate the refracted pixel.
+          Reflections are calculated again for this pass, using screen-space rays
+          cast from each refractive pixel. Since the same algorithms and such
+          are used in multiple passes, a competent shader build system will be
+          developed (by zombies).</li>
+        <li>Post-processing passes. The default renderer computes bloom, glare,
+          vingette, film grain, and tonemapping.</li>
+        <li>Anti-aliasing. The default renderer uses the SMAA algorithm, although
+          the user can substitute any algorithm that operates on linear-space
+          LDR data. Gamma correction is performed after this pass.</li>
+      </ol>
+    <h2>Depth-Only Passes</h2>
+    <p>The depth-only passes are rendered first to avoid switching to the
+      depth-only shader multiple times per frame. The depth-only passes output
+      to either the depth buffer or a shadow map, depending on whether the
+      shadow depth-only pass or the early-z depth-only pass is being
+      rendered.</p>
+    <h2>Gbuffer Pass</h2>
+    <p>The gbuffer pass serves to write material data to the gbuffer. The
+      material data is as follows:</p>
+    <ol>
+      <li>Albedo (RGB)</li>
+      <li>Specuar color (RGB) and roughness (A)</li>
+      <li>Surface normal (RGB) in world space</li>
+    </ol>
+    <h3>Tessellation</h3>
+    <p>In this pass, the Jotun Engine's default renderer is able to calculate
+      tessellation, providing a higher amount of tessellation where there are
+      curves with a smaller radius in the normalmap. This is accomplished by
+      running an edge-detection filter on the normalmap when it's mapped to its
+      mesh and using the result of the edge-detection as an input to the
+      tessellation control shader. Additionally, the Jotun Engine is able to
+      tightly tessellate the mesh where multiple bones affect the mesh.</p>
+    <h2>Direct Lighting</h2>
+    <p>The direct lighting pass calculated diffuse and specular lighting from a
+      given light source. One direct lighting pass is rendered for all the point
+      and spot lights, and one direct lighting pass is rendered for each
+      directional light. Point and spot lights use a geometry shader to generate
+      a mesh which represents the screen-space area that each light covers.
+      Spot lights generate a cone with a rounded bottom, where the rounded
+      bottom is computed from an icosphere.</p>
+    TODO: An image of the generated geometry.
+    <p>Point lights use the same algorithm as spot lights, except they use a
+      spot angle of 360 degrees, which produces a sphere.</p>
+    TODO: An image of the generated geometry.
+    <h3>Shadows</h3>
+    <p>The fragment shader used on lights first determines the shadow strength
+      of the current pixel. By default, the Jotun Engine has three shadow
+      filtering options: Hard (no filtering), Soft (PCF), and Realistic (PCSS).
+      Both the Soft and Realistic options use the light's size (defined
+      per-light) to determine the softness of the shadows. Soft computes the
+      softness when there's a one unit distance from the shadow caster to the
+      shadow receiver</p>
+    <p>The Jotun Engine allows the user to set a maximum number of
+      shadow-casting lights, and to set lights as "important". Important lights
+      will be considered for casting a shadow before unimportant lights. If
+      there are more shadow-casting lights than the maximum allowed number, the
+      Jotun Engine will determine which shadow-casting lights cover the most
+      screen space (math formula based on light's size and distance from light
+      to camera) and render the shadows which cover the most screen space.</p>
+    <p>Math formula: area of circle (in world space) divided by distance from
+      camera (to get screen-ish space).</p>
+    <h3>Diffuse and Specular</h3>
+    <p>Diffuse lighting is calculated using the Phong equations (cosine of angle
+      between light vector and surface normal). Specular lighting is calculated
+      with the Cook-Torance equation, where as many parameters as possible are
+      calculated from the roughness. The diffuse and specular lighting are
+      calculated without using the material's colors.</p>
+    <h2>Reflections</h2>
+    <p>The Jotun Engine utilizes a screen-space reflection algorithm to
+      determine reflections and indirect lighting. The user is able to define
+      the maximum number of ray steps allowed, as well as the distance per ray
+      step. However, the Jotun Engine limits the length of a given ray to one
+      pixel. If a ray is unable to be resolved, the Jotun Engine will take a
+      color from the cubemap with the smallest area of effect.</p>
+    <p>When a ray is cast from a given pixel, it is given a random offset from
+      the pixel's normal with the random range increasing with the pixel's
+      roughness. This results in rather grainy reflections. Although the
+      anti-aliasing pass will help to alleviate this effect, the user is
+      encouraged to increase the number of rays per pixel to achieve higher
+      quality reflections.</p>
+    <h2>Post-Processing</h2>
+    <p>Since the Jotun Engine uses a HDR renderer by default, it applies a
+      tonemapping operator before drawing to the screen. Therefore, there are
+      two main post-processing modes: LDR and HDR. HDR effects are executed
+      first. As many as possible as executed at the same time to reduce the
+      number of draw calls. However, each post-processing effect is written as
+      a single fragment shader, to increase code maintainability. All the
+      fragment shaders are then combined into a single large shader when the
+      project is built.</p>
+    <p>Each effect can be executed before or after another effect. This causes
+      the Jotun Engine to generate an extra rendering pass, so it is not
+      recommended.</p>
+    TODO: Pictures showing the effects inspector
+    <h3>Writing a Post-Processing Effect</h3>
+    <p>Post-processing effects have a number of variables available to them,
+      including:</p>
+    <ul>
+      <li>The lighting buffer</li>
+      <li>The reflection buffer</li>
+      <li>The material properties buffer</li>
+      <li>The composite buffer</li>
+      <li>The transform of the camera</li>
+      <li>Information about the render target: width and height</li>
+    </ul>
+  </body>
+</html>
+

@@ -1,0 +1,74 @@
+Jotun Engine Documentation:
+
+Philosophy
+**************
+The Jotun Engine is defined by a number of core principles:
+Modularity: The Jotun Engine is designed to be highly modular, such that
+    any module may be swapped our for a different module designed to have
+    the same functionality and a minimum number of changes need to be
+    performed on other modules
+Speed: The Jotun Engine is designed for execution speed, allowing game
+    developers to write CPU-intensive algorithms without worry. It ships
+    with an AZDO OpenGL renderer to achieve rendering speed, and the other
+    default modules will also be designed for speed.
+Multithreaded: This goes hand-in-hand with speed. Since the Jotun Engine
+    is designed to automatically scale to the number of CPU cores on the
+    host machine, it also achieves a great deal of speed
+Useable: The Jotun Engine has been designed to serve developer's needs
+    out of the box. For example, the Jotun Engine stores unbaked scene
+    data in a YAML file, allowing for the scene files to play nicely with
+    version control programs such as git. Additionally, the Jotun Engine's
+    scripting language is designed to be easy to learn and use,
+    significantly cutting down development time
+Discoverable: The Jotun Engine assumes its users are intelligent people
+    who want to learn how to use it. All the documentation has been
+    written to allow for maximum discoverability: copius hyperlinks allow
+    readers to quickly learn related topics, code exampled contain
+    functionality related to the current page that the reader may be
+    interested in discovering. 
+
+Definitions
+**************
+Loader: A function capable of taking a YAML-like array structure and
+    producing a list of components described by said list
+Module: The building blocks of the Jotun Engine. A module is capable of
+    calculating one aspect of a video game, such as physics or rendering,
+    as independently as possible. Each module should be as decoupled from
+    other modules as possible. The exception to this is the Core module;
+    other modules are allowed to be tightly coupled to the Core module
+    since it will always be present in the Jotun Engine, while users are
+    encouraged to swap out other modules
+Entity: Entities are things in the game. They may be anything from an NPC
+    to a house to a minimap. Each Entity has a set of components attached
+    which tell the Jotun Engine how to handle the Entity. For example, an
+    NPC may have a renderer component so it's drawn to screen, a physics
+    component so it doesn't clip through the environment, an AI component
+    so it can navigate the game world, etc.
+Component: A component is the basis of all the data handled by the Jotun
+    Engine. Components have an entity ID, which is used to link components
+    attached to the same Entity together.
+
+Loading
+**************
+Loading data from disk is accomplished in two main steps. First, the YAML
+data is read from disk and put into memory. Then, the registered Loader
+functions are called, one for each component type. The Loader functions
+should be static to the class they're in, and the class should only have
+static data. That static data should include a database-type structure
+that is used to store loaded Components.
+
+Threads
+**************
+The Jotun Engine creates one thread for each logical CPU core, includeing
+the main thread. Each thread (other than the main thread) receives jobs
+from the Job Manager. Each Module is required to submit as many logically
+separate jobs as possible to the Job Manager, rather than trying to run
+everything in the same job, to allow the Job Manager to run the jobs as
+effeciently as possible. The exception to this is an OpenGL-based renderer.
+Since OpenGL only allows API calls from the main thread, OpenGL-related
+jobs cannot be submitted to the Job Manager. Jobs relating to rendering
+that do not invoke OpenGL API calls, such as a job to sort renderable
+objects by depth from camera, can be submitted to the Job Manager without
+any trouble. However, each rendering Module has the responsibility to
+remember which jobs are in the Job Manager and to not try rendering until
+all rendering data has been processed. 

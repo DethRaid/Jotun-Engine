@@ -1,0 +1,11 @@
+digraph "Material::setVariable"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Material::setVariable",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Shader::setUniform1i",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shader.html#a0d5c21c96edd9c67599d26131251c5d3",tooltip="Sends a single integer to the specified location. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ShaderVarHash::setValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_shader_var_hash.html#a64b7d53c81ae390f04c7de6feba95991",tooltip="Adds the given integer to the hashmap, using the specified name as a key. "];
+}

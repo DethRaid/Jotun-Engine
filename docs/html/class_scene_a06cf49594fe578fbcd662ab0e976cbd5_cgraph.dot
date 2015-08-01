@@ -1,0 +1,15 @@
+digraph "Scene::Scene"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Scene::Scene",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Scene::loadScene",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene.html#ad250358a843813c8c3195b80f8d0ed67",tooltip="Loads a scene using a specified scene file (.jes) "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Scene::loadMesh",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene.html#a4744efe84e21c338c0b79a53d75894b8",tooltip="Loads a mesh with the given name into the cache of meshes. "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Scene::loadTexture",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene.html#a57e72ec50cf9f91446a2ff22df0a5c82",tooltip="Loads a texture with the given name into the cache of textures. "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Scene::loadShader",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene.html#a0126921bd71b608903e42cea96de37f9",tooltip="Creates a new GLSL shader object with the vertex shader found at shader/vertName and the fragment sha..."];
+}

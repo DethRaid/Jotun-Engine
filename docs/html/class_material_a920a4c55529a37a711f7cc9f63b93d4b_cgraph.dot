@@ -1,0 +1,11 @@
+digraph "Material::bind"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Material::bind",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Camera::getProjMatrix",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_camera.html#a4e4f082071bdf7da528ecf19e09f938d",tooltip="returns the camera&#39;s projection matrix, calculated from the field of view, aspect ratio..."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Camera::getViewMatrix",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_camera.html#a5569ca5967e01d3344fbf6aba36d9820",tooltip="Returns the camera&#39;s view matrix, calculated from the camera&#39;s position and forward direction..."];
+}

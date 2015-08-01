@@ -1,0 +1,93 @@
+{
+    "_comment": [
+        "Here's how the components are stored:",
+        " - Each type of component is stored in a sequence of mappings preceded by",
+        "the type of component present",
+        "- Each component entry has an entityid, which is used to link the components together",
+        "- The 'pure data' things, such as rendering materials, are stored in a separate listing",
+        "- Configuration, saying where each typs of data may be found, is stored in its own listing"
+    ],
+    "config": {
+        "resourcedir": "res/",
+        "texturedir": "tex/",
+        "meshdir": "msh/",
+        "shaderdir": "shd/"
+    },
+    "transform": {
+        "_comment": "position is measured in meters, rotation in degrees",
+        "values": [
+            {
+                "entityid": 1,
+                "position": [ 0, 0, 0 ],
+                "rotation": [ 0, 0, 0 ],
+                "scale": [ 10, 10, 10 ]
+            },
+            {
+                "entityid": 2,
+                "position": [ 0, 5, 0 ],
+                "rotation": [ 0, 0, 0 ],
+                "scale": [ 1, 1, 1 ]
+            },
+            {
+                "entityid": 3,
+                "position": [ 2.5, 7, 2.5 ],
+                "rotation": [ 315, 0, 0 ],
+                "scale": [ 1, 1, 1 ]
+            }
+        ]
+    },
+    "renderablemesh": {
+        "values": [
+            {
+                "entityid": 1,
+                "filename": "floor.obj",
+                "material": "floor"
+            },
+            {
+                "entityid": 2,
+                "filename": "sphere.obj",
+                "material": "sphere_tess"
+            }
+        ]
+    },
+    "light": {
+        "values": [
+            {
+                "entityid": 3,
+                "type": "directional",
+                "color": [ 1, 1, 1 ],
+                "castshadow": true
+            }
+        ]
+    },
+
+
+    "material": {
+        "_comment": [
+            "Materials are required to have a name, fragmentshader, vertexshader, albedotex, normaltex,",
+            "and speculartex. They may have other attributes as needed, such as tessellation or",
+            "geometry shaders"
+        ],
+        "values": [
+            {
+                "name": "floor",
+                "fragmentshader": "gbuf_pbs.frag",
+                "vertexshader": "gbuf.vert",
+                "albedotex": "floor_a.png",
+                "normaltex": "floor_n.png",
+                "speculartex": "floor_s.png"
+            },
+            {
+                "name": "sphere_tess",
+                "fragmentshader": "gbuf_pbs.frag",
+                "teseshader": "gbuf.tese",
+                "tescshader": "gbuf.tesc",
+                "vertexshader": "gbuf.vert",
+                "albedotex": "sphere_a.png",
+                "normaltex": "sphere_n.png",
+                "speculartex": "sphere_s.png",
+                "tesstex": "sphere_t.png"
+            }
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+digraph "Transformable::translate"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Transformable::translate",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Camera::update",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_camera.html#a42cda7239981a5618660d04bd5893556",tooltip="Checks for the camera&#39;s movement flags, moving the camera accordingly. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Light::update",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_light.html#a295eaf1ef5ebd30fa4997d4f7ccbb7e1",tooltip="Updates the light, aligning the camera with the light. "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Scene::render",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene.html#a4ddf2d16f371ee9533b3faf1dd5ddfb1",tooltip="Renders this scene. "];
+}

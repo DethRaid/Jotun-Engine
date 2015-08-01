@@ -1,0 +1,13 @@
+digraph "Shader::setUniformMat4x4"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Shader::setUniformMat4x4",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="DirectionalLight::render\lShadow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_directional_light.html#a5fa5e3d9c9431e815a7a69d6d93a10d6",tooltip="Renders the mesh using an orthogonal camera. As the light is assumed to be at infinity, no culling happens. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Material::setVariable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_material.html#abdf01dde200bfa4bbdbd2afc1a7106f4",tooltip="Sets the GLSL variable named name to value. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Material::sendModelMatrix",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_material.html#a801d669c21c4f64094b31d069b3733a5",tooltip="Lets this material know what the model&#39;s matrix is, in order to upload that matrix to the shader..."];
+}

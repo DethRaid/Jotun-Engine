@@ -1,0 +1,11 @@
+digraph "Camera::getViewMatrix"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Camera::getViewMatrix",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Light::getViewMatrix",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_light.html#a4d68a3ba56cc6fc694b4bccde4d4dd25",tooltip="Returns a view matrix for a camera looking from the light to the specified position. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Material::bind",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_material.html#a920a4c55529a37a711f7cc9f63b93d4b",tooltip="Binds the current material, sending all its current variables to its shader. This function takes a ca..."];
+}
