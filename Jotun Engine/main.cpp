@@ -13,10 +13,8 @@
 void main() {
     std::string fileName = "../CoreServices/SampleScene.json";
 
-    CoreServices::SceneLoader loader;
-    loader.init();
+    CoreServices::SceneFileLoader loader;
     loader.loadScene( fileName );
-    loader.deinit();
 
     system( "PAUSE" );
 }

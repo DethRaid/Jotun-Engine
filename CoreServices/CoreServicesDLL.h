@@ -6,4 +6,4 @@
 #define CORESERVICESDLL_API __declspec(dllimport) 
 #endif
 
-#include "SceneLoader.h"
+#include "SceneFileLoader.h"
