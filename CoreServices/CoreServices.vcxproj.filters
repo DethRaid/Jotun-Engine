@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Components">
       <UniqueIdentifier>{9fffb24a-14e8-4ba4-a630-ac51446ce76e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{04620adb-e719-462c-aead-1c2565c95d24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interfaces">
+      <UniqueIdentifier>{0c90131b-7c94-420f-aa8a-ecbacc9e6d30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -28,9 +34,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CoreServicesDLL.h">
@@ -45,6 +48,33 @@
     <ClInclude Include="JsonUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SceneFileLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderSystem.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ISceneLoader.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ISubsystem.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IPhysicsSystem.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -56,9 +86,6 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SceneLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -67,6 +94,33 @@
     </ClCompile>
     <ClCompile Include="JsonUtils.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneFileLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IPhysicsSystem.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="IRenderSystem.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="IScene.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="ISceneLoader.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="ISubsystem.cpp">
+      <Filter>Source Files\Interfaces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

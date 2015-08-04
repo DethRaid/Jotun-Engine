@@ -2,8 +2,8 @@
 #include "SceneFileLoader.h"
 
 namespace CoreServices {
-    void SceneFileLoader::registerSceneLoader( std::string name, SceneLoaderCallback func ) {
-        sceneCallbacks.emplace( name, func );
+    void SceneFileLoader::registerSceneLoader( std::string name, ISceneLoader *loader ) {
+        sceneCallbacks.emplace( name, loader );
     }
 
     void SceneFileLoader::loadScene( std::string &sceneFileName ) {
@@ -25,7 +25,7 @@ namespace CoreServices {
 
             // TODO: Assume there might be an error, maybe?
             for( auto kv : sceneCallbacks ) {
-                kv.second( &sceneDoc[kv.first.c_str()] );
+                kv.second->loadSceneFromJson( sceneDoc[kv.first.c_str()] );
             }
         } else {
             std::cout << "Could not open file " << sceneFileName << "\n";

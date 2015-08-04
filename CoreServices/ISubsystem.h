@@ -1,6 +1,10 @@
 #pragma once
 
+#include "ISceneLoader.h"
+
 namespace CoreServices {
+    class ISceneLoader;
+
     /*~\brief Interface for all the subsystems of the JotunEngine or games built with it*/
     class ISubsystem {
     public:
@@ -24,5 +28,8 @@ namespace CoreServices {
 
         /*!\brief Called as the engine is closed*/
         virtual void shutdown() = 0;
+
+        /*!\brief Returns the ISceneLoader this subsystem uses to load all its data*/
+        virtual ISceneLoader* getDataLoader() = 0;
     };
 }

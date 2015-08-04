@@ -3,6 +3,7 @@
 #include "IScene.h"
 #include "ISceneLoader.h"
 
+#include "SceneFileLoader.h"
 #include "Transform.h"
 
 namespace CoreServices {
@@ -11,9 +12,15 @@ namespace CoreServices {
         TransformScene();
         ~TransformScene();
 
+        /* ISceneLoader methods */
+        void registerSelf( SceneFileLoader *loader );
         void loadSceneFromJson( rapidjson::Value &json );
-        std::vector<Transform> getComponents();
+
+        /* IScene methods */
+        const std::vector<Transform> & getComponents() const;
     private:
         std::vector<Transform> transforms;
     };
+
+    void loadTransformSceneFromJson( rapidjson::Value &json, ISceneLoader *loader );
 }
