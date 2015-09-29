@@ -1,20 +1,18 @@
-#include "stdafx.h"
 #include "Engine.h"
-
 
 namespace CoreServices {
     Engine::Engine() {
-        transformScene.registerSelf( &fileLoader );
+        fileLoader.register_scene_loader( &transformScene );
     }
 
     Engine::~Engine() {}
 
     void Engine::registerSubSystem( ISubsystem *newSubsystem ) {
         subsystems.push_back( newSubsystem );
-        newSubsystem->getDataLoader()->registerSelf( &fileLoader );
+        fileLoader.register_scene_loader( newSubsystem->get_data_loader() );
     }
 
-    void Engine::loadScene( std::string sceneFileName ) {
+    void Engine::load_scene( std::string sceneFileName ) {
         fileLoader.loadScene( sceneFileName );
     }
 
@@ -23,42 +21,51 @@ namespace CoreServices {
         tick();
     }
 
+    SceneFileLoader & Engine::getSceneFileLoader() {
+        return fileLoader;
+    }
+
+    TransformScene & Engine::getTransformScene() {
+        return transformScene;
+    }
+
     void Engine::tick() {
         while( true ) {
-            clock_t startTime = clock();
+            std::chrono::system_clock::time_point startTime = std::chrono::system_clock::now();
 
             doUpdateAndRender();
 
-            clock_t updateEndTime = clock();
-            frameTime += double( updateEndTime - startTime ) / CLOCKS_PER_SEC;
+            std::chrono::system_clock::time_point updateEndTime = std::chrono::system_clock::now();
+            frameTime += updateEndTime - startTime;
 
             doPhysics();
 
-            clock_t frameEndTime = clock();
-            Time::deltaTime = double( frameEndTime - startTime ) / CLOCKS_PER_SEC;
+            std::chrono::system_clock::time_point frameEndTime = std::chrono::system_clock::now();
+
+            Time::deltaTime = frameEndTime - startTime;
         }
     }
 
     void Engine::doUpdateAndRender() {
         for( ISubsystem *sub : subsystems ) {
-            sub->onPreRender();
+            sub->update();
+        }
+
+        for( ISubsystem *sub : subsystems ) {
+            sub->on_pre_render();
         }
 
         renderSystem->render();
-
-        for( ISubsystem *sub : subsystems ) {
-            sub->update();
-        }
     }
 
     // TODO: I feel like the time won't be exactly right, especially if the physics
     // doesn't take exactly Time::fixedTimeStep seconds to execute
     void Engine::doPhysics() {
         // Consume frame time
-        for( frameTime; frameTime > 0.0; frameTime -= Time::fixedTimeStep ) {
+        for( frameTime; frameTime > std::chrono::duration<int, std::milli>( 0 ); frameTime -= Time::fixedTimeStep ) {
             physicsSystem->doPhysics();
             for( ISubsystem *sub : subsystems ) {
-                sub->fixedUpdate();
+                sub->fixed_update();
             }
         }
 

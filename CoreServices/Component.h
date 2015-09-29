@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rapidjson\document.h>
+#include "stdafx.h"
 
 namespace CoreServices {
     class Component {

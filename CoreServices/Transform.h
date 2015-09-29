@@ -1,6 +1,6 @@
 #pragma once
-#include <gl/glm/common.hpp>
-#include <rapidjson\document.h>
+
+#include "stdafx.h"
 
 #include "Component.h"
 #include "JsonUtils.h"

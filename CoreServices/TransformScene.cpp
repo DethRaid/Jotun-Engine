@@ -6,11 +6,11 @@ namespace CoreServices {
 
     TransformScene::~TransformScene() {}
 
-    void TransformScene::registerSelf( SceneFileLoader *loader ) {
-        loader->registerSceneLoader( "transform", this );
+    std::string TransformScene::get_handled_type() {
+        return "transform";
     }
 
-    void TransformScene::loadSceneFromJson( rapidjson::Value &json ) {
+    void TransformScene::load_scene_from_json( rapidjson::Value &json ) {
 
     }
 

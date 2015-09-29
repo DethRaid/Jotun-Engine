@@ -2,7 +2,7 @@
 #include "Time.h"
 
 namespace CoreServices {
-    double Time::curTime;
-    double Time::deltaTime;
-    double Time::fixedTimeStep;
+    std::chrono::system_clock::time_point Time::curTime;
+    std::chrono::duration<int, std::milli> Time::deltaTime;
+    std::chrono::duration<int, std::milli> Time::fixedTimeStep;
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -11,12 +11,40 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\CoreServices\Component.cpp" />
+    <ClCompile Include="..\CoreServices\CoreServices.cpp" />
+    <ClCompile Include="..\CoreServices\Engine.cpp" />
+    <ClCompile Include="..\CoreServices\IPhysicsSystem.cpp" />
+    <ClCompile Include="..\CoreServices\IRenderSystem.cpp" />
+    <ClCompile Include="..\CoreServices\IScene.cpp" />
+    <ClCompile Include="..\CoreServices\ISceneLoader.cpp" />
+    <ClCompile Include="..\CoreServices\ISubsystem.cpp" />
+    <ClCompile Include="..\CoreServices\JsonUtils.cpp" />
+    <ClCompile Include="..\CoreServices\SceneFileLoader.cpp" />
+    <ClCompile Include="..\CoreServices\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\Time.cpp" />
+    <ClCompile Include="..\CoreServices\Transform.cpp" />
+    <ClCompile Include="..\CoreServices\TransformScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoreServices\CoreServices.vcxproj">
-      <Project>{86b159bb-553a-4022-b934-c37f8babcb0a}</Project>
-    </ProjectReference>
+    <ClInclude Include="..\CoreServices\Component.h" />
+    <ClInclude Include="..\CoreServices\Engine.h" />
+    <ClInclude Include="..\CoreServices\IPhysicsSystem.h" />
+    <ClInclude Include="..\CoreServices\IRenderSystem.h" />
+    <ClInclude Include="..\CoreServices\IScene.h" />
+    <ClInclude Include="..\CoreServices\ISceneLoader.h" />
+    <ClInclude Include="..\CoreServices\ISubsystem.h" />
+    <ClInclude Include="..\CoreServices\JsonUtils.h" />
+    <ClInclude Include="..\CoreServices\SceneFileLoader.h" />
+    <ClInclude Include="..\CoreServices\stdafx.h" />
+    <ClInclude Include="..\CoreServices\targetver.h" />
+    <ClInclude Include="..\CoreServices\Time.h" />
+    <ClInclude Include="..\CoreServices\Transform.h" />
+    <ClInclude Include="..\CoreServices\TransformScene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{80775B51-CF38-4035-9166-C28B96526FF4}</ProjectGuid>
@@ -26,13 +54,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -49,14 +77,14 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../CoreServices/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>yaml-cpp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

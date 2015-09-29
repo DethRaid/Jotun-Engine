@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rapidjson\document.h>
+#include <rapidjson/document.h>
 #include <gl/glm/common.hpp>
 
 namespace CoreServices {

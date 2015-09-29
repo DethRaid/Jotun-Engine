@@ -1,7 +1,6 @@
 #pragma once
 
-#include <ctime>
-#include <cmath>
+#include "stdafx.h"
 
 #include "TransformScene.h"
 #include "SceneFileLoader.h"
@@ -9,17 +8,16 @@
 #include "ISubsystem.h"
 #include "IRenderSystem.h"
 
-#include "Time.h"
-
 namespace CoreServices {
-    class CORESERVICESDLL_API Engine {
+
+    class Engine {
     public:
         Engine();
         ~Engine();
 
         /* Initialization methods */
         void registerSubSystem( ISubsystem *newSubsystem );
-        void loadScene( std::string sceneFileName );
+        void load_scene( std::string sceneFileName );
 
         /* Run methods */
         void beginGameLoop();
@@ -34,7 +32,7 @@ namespace CoreServices {
         IRenderSystem *renderSystem;
         IPhysicsSystem *physicsSystem;
 
-        double frameTime;
+        std::chrono::system_clock::duration frameTime;
 
         void tick();
         void doUpdateAndRender();

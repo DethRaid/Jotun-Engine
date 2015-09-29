@@ -2,8 +2,12 @@
 #include "SceneFileLoader.h"
 
 namespace CoreServices {
-    void SceneFileLoader::registerSceneLoader( std::string name, ISceneLoader *loader ) {
-        sceneCallbacks.emplace( name, loader );
+    SceneFileLoader::SceneFileLoader() {}
+
+    SceneFileLoader::~SceneFileLoader() {}
+
+    void SceneFileLoader::register_scene_loader( ISceneLoader *loader ) {
+        sceneCallbacks.emplace( loader->get_handled_type(), loader );
     }
 
     void SceneFileLoader::loadScene( std::string &sceneFileName ) {
@@ -20,12 +24,17 @@ namespace CoreServices {
             }
             sceneDoc.Parse( accum.c_str() );
 
-            std::cout << "Config: " << sceneDoc.GetType() << "\n";
+            std::cout << "Config: " <<sceneDoc["config"]["resourcedir"].GetString() << "\n";
+
             std::cout << "Loaded scene\n";
 
             // TODO: Assume there might be an error, maybe?
             for( auto kv : sceneCallbacks ) {
-                kv.second->loadSceneFromJson( sceneDoc[kv.first.c_str()] );
+                try {
+                    kv.second->load_scene_from_json( sceneDoc[kv.first.c_str()] );
+                } catch( ... ) {
+                    std::cout << "Exception occured :(\n";
+                }
             }
         } else {
             std::cout << "Could not open file " << sceneFileName << "\n";

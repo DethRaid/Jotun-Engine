@@ -13,10 +13,114 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Core Services">
+      <UniqueIdentifier>{2c3aed69-31f7-475d-9ee5-78e86e634a2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core Services\Components">
+      <UniqueIdentifier>{2a154db4-5173-48f7-82d2-a62197ec8731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core Services\Interfaces">
+      <UniqueIdentifier>{66f7a5c2-c66e-4af7-b180-dff0753e77a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core Services">
+      <UniqueIdentifier>{d40c95e4-e9a1-400b-bedf-60eed031e2d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core Services\Components">
+      <UniqueIdentifier>{799d41cd-3fff-4932-baab-2364ee4ca5be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core Services\Interfaces">
+      <UniqueIdentifier>{813aa500-8934-43be-9616-8cf1332df4b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\CoreServices\Component.cpp">
+      <Filter>Source Files\Core Services\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\Transform.cpp">
+      <Filter>Source Files\Core Services\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\IPhysicsSystem.cpp">
+      <Filter>Source Files\Core Services\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\IRenderSystem.cpp">
+      <Filter>Source Files\Core Services\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\IScene.cpp">
+      <Filter>Source Files\Core Services\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\ISceneLoader.cpp">
+      <Filter>Source Files\Core Services\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\ISubsystem.cpp">
+      <Filter>Source Files\Core Services\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\CoreServices.cpp">
+      <Filter>Source Files\Core Services</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\Engine.cpp">
+      <Filter>Source Files\Core Services</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\JsonUtils.cpp">
+      <Filter>Source Files\Core Services</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\SceneFileLoader.cpp">
+      <Filter>Source Files\Core Services</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\stdafx.cpp">
+      <Filter>Source Files\Core Services</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\Time.cpp">
+      <Filter>Source Files\Core Services</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CoreServices\TransformScene.cpp">
+      <Filter>Source Files\Core Services</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CoreServices\Component.h">
+      <Filter>Header Files\Core Services\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\Transform.h">
+      <Filter>Header Files\Core Services\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\IPhysicsSystem.h">
+      <Filter>Header Files\Core Services\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\IRenderSystem.h">
+      <Filter>Header Files\Core Services\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\IScene.h">
+      <Filter>Header Files\Core Services\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\ISceneLoader.h">
+      <Filter>Header Files\Core Services\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\ISubsystem.h">
+      <Filter>Header Files\Core Services\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\Engine.h">
+      <Filter>Header Files\Core Services</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\JsonUtils.h">
+      <Filter>Header Files\Core Services</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\SceneFileLoader.h">
+      <Filter>Header Files\Core Services</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\stdafx.h">
+      <Filter>Header Files\Core Services</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\targetver.h">
+      <Filter>Header Files\Core Services</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\Time.h">
+      <Filter>Header Files\Core Services</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CoreServices\TransformScene.h">
+      <Filter>Header Files\Core Services</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
