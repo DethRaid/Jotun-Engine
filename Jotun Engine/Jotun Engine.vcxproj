@@ -11,40 +11,41 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\CoreServices\Component.cpp" />
-    <ClCompile Include="..\CoreServices\CoreServices.cpp" />
-    <ClCompile Include="..\CoreServices\Engine.cpp" />
-    <ClCompile Include="..\CoreServices\IPhysicsSystem.cpp" />
-    <ClCompile Include="..\CoreServices\IRenderSystem.cpp" />
-    <ClCompile Include="..\CoreServices\IScene.cpp" />
-    <ClCompile Include="..\CoreServices\ISceneLoader.cpp" />
-    <ClCompile Include="..\CoreServices\ISubsystem.cpp" />
-    <ClCompile Include="..\CoreServices\JsonUtils.cpp" />
-    <ClCompile Include="..\CoreServices\SceneFileLoader.cpp" />
-    <ClCompile Include="..\CoreServices\stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\CoreServices\Time.cpp" />
-    <ClCompile Include="..\CoreServices\Transform.cpp" />
-    <ClCompile Include="..\CoreServices\TransformScene.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="IPhysicsSystem.cpp" />
+    <ClCompile Include="IRenderSystem.cpp" />
+    <ClCompile Include="IScene.cpp" />
+    <ClCompile Include="ISceneLoader.cpp" />
+    <ClCompile Include="ISubsystem.cpp" />
+    <ClCompile Include="JsonUtils.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RenderableScene.cpp" />
+    <ClCompile Include="SceneFileLoader.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="TransformScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\CoreServices\Component.h" />
-    <ClInclude Include="..\CoreServices\Engine.h" />
-    <ClInclude Include="..\CoreServices\IPhysicsSystem.h" />
-    <ClInclude Include="..\CoreServices\IRenderSystem.h" />
-    <ClInclude Include="..\CoreServices\IScene.h" />
-    <ClInclude Include="..\CoreServices\ISceneLoader.h" />
-    <ClInclude Include="..\CoreServices\ISubsystem.h" />
-    <ClInclude Include="..\CoreServices\JsonUtils.h" />
-    <ClInclude Include="..\CoreServices\SceneFileLoader.h" />
-    <ClInclude Include="..\CoreServices\stdafx.h" />
-    <ClInclude Include="..\CoreServices\targetver.h" />
-    <ClInclude Include="..\CoreServices\Time.h" />
-    <ClInclude Include="..\CoreServices\Transform.h" />
-    <ClInclude Include="..\CoreServices\TransformScene.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="IPhysicsSystem.h" />
+    <ClInclude Include="IRenderSystem.h" />
+    <ClInclude Include="IScene.h" />
+    <ClInclude Include="ISceneLoader.h" />
+    <ClInclude Include="ISubsystem.h" />
+    <ClInclude Include="JsonUtils.h" />
+    <ClInclude Include="RenderableScene.h" />
+    <ClInclude Include="SceneFileLoader.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Time.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="TransformScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SampleScene.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{80775B51-CF38-4035-9166-C28B96526FF4}</ProjectGuid>

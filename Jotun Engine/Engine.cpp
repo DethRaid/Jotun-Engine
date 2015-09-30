@@ -42,7 +42,7 @@ namespace CoreServices {
 
             std::chrono::system_clock::time_point frameEndTime = std::chrono::system_clock::now();
 
-            Time::deltaTime = frameEndTime - startTime;
+            //Time::deltaTime = frameEndTime - startTime;
         }
     }
 

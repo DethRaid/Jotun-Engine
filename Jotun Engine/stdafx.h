@@ -11,9 +11,13 @@
 // Windows Header Files:
 #include <windows.h>
 
+#include <cstdlib>
+#include <cstdio>
+
 #include <chrono>
 #include <iostream>
 #include <fstream>
+#include <string>
 #include <vector>
 #include <unordered_map>
 

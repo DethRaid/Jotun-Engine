@@ -7,7 +7,7 @@
 #include "Engine.h"
 
 void main() {
-    std::string fileName = "../CoreServices/SampleScene.json";
+    std::string fileName = "SampleScene.json";
 
     CoreServices::Engine engine;
     engine.load_scene( fileName );

@@ -7,6 +7,6 @@ namespace CoreServices {
     public:
         long entityId;
 
-        virtual void loadFromJson( rapidjson::Value &json ) = 0;
+        virtual void load_from_json( rapidjson::Value &json ) = 0;
     };
 }

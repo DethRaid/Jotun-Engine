@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 
+#include "Time.h"
 #include "TransformScene.h"
 #include "SceneFileLoader.h"
 #include "IPhysicsSystem.h"

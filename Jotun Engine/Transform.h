@@ -12,7 +12,8 @@ namespace CoreServices {
         glm::vec3 rotation;
         glm::vec3 scale;
 
-        void loadFromJson( rapidjson::Value &json );
+        virtual void load_from_json( rapidjson::Value &json );
     };
 
+    std::ostream& operator<<( std::ostream& os, const Transform obj );
 }

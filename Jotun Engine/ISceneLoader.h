@@ -10,8 +10,11 @@ namespace CoreServices {
         virtual ~ISceneLoader() {}
 
         /*!\brief Returns the name of the node that this loader can load*/
-        virtual std::string get_handled_type() = 0;
+        const std::string& get_handled_type() const;
 
         virtual void load_scene_from_json( rapidjson::Value &json ) = 0;
+
+    protected:
+        std::string m_handled_type;
     };
 }

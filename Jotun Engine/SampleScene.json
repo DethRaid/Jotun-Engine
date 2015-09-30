@@ -3,7 +3,7 @@
         "Here's how the components are stored:",
         " - Each type of component is stored in a sequence of mappings preceded by",
         "the type of component present",
-        "- Each component entry has an entityid, which is used to link the components together",
+        "- Each component entry has an entity_id, which is used to link the components together",
         "- The 'pure data' things, such as rendering materials, are stored in a separate listing",
         "- Configuration, saying where each typs of data may be found, is stored in its own listing"
     ],
@@ -17,19 +17,19 @@
         "_comment": "position is measured in meters, rotation in degrees",
         "values": [
             {
-                "entityid": 1,
+                "entity_id": 1,
                 "position": [ 0, 0, 0 ],
                 "rotation": [ 0, 0, 0 ],
                 "scale": [ 10, 10, 10 ]
             },
             {
-                "entityid": 2,
+                "entity_id": 2,
                 "position": [ 0, 5, 0 ],
                 "rotation": [ 0, 0, 0 ],
                 "scale": [ 1, 1, 1 ]
             },
             {
-                "entityid": 3,
+                "entity_id": 3,
                 "position": [ 2.5, 7, 2.5 ],
                 "rotation": [ 315, 0, 0 ],
                 "scale": [ 1, 1, 1 ]
@@ -39,12 +39,12 @@
     "renderablemesh": {
         "values": [
             {
-                "entityid": 1,
+                "entity_id": 1,
                 "filename": "floor.obj",
                 "material": "floor"
             },
             {
-                "entityid": 2,
+                "entity_id": 2,
                 "filename": "sphere.obj",
                 "material": "sphere_tess"
             }
@@ -53,7 +53,7 @@
     "light": {
         "values": [
             {
-                "entityid": 3,
+                "entity_id": 3,
                 "type": "directional",
                 "color": [ 1, 1, 1 ],
                 "castshadow": true
