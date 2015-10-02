@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="IPhysicsSystem.cpp" />
     <ClCompile Include="IRenderSystem.cpp" />
     <ClCompile Include="IScene.cpp" />
@@ -20,8 +21,11 @@
     <ClCompile Include="ISubsystem.cpp" />
     <ClCompile Include="JsonUtils.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RenderableMeshScene.cpp" />
     <ClCompile Include="RenderableScene.cpp" />
     <ClCompile Include="SceneFileLoader.cpp" />
+    <ClCompile Include="shader_program.cpp" />
+    <ClCompile Include="shader_variables.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transform.cpp" />
@@ -30,14 +34,19 @@
   <ItemGroup>
     <ClInclude Include="Component.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="glad.h" />
     <ClInclude Include="IPhysicsSystem.h" />
     <ClInclude Include="IRenderSystem.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="ISceneLoader.h" />
     <ClInclude Include="ISubsystem.h" />
     <ClInclude Include="JsonUtils.h" />
+    <ClInclude Include="RenderableMeshScene.h" />
     <ClInclude Include="RenderableScene.h" />
+    <ClInclude Include="RenderData.h" />
     <ClInclude Include="SceneFileLoader.h" />
+    <ClInclude Include="shader_program.h" />
+    <ClInclude Include="shader_variables.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Time.h" />

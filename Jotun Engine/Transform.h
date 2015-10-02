@@ -6,7 +6,7 @@
 #include "JsonUtils.h"
 
 namespace CoreServices {
-    class Transform : public Component {
+    class Transform : public component {
     public:
         glm::vec3 position;
         glm::vec3 rotation;
