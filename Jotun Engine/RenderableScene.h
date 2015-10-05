@@ -12,7 +12,7 @@ namespace Renderer {
         virtual ~RenderableScene();
 
         /* ISceneLoader methods */
-        virtual void load_scene_from_json( rapidjson::Value& json );
+        //virtual void load_scene_from_json( rapidjson::Value& json );
     };
 }
 

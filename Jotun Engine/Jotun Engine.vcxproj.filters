@@ -37,6 +37,9 @@
     <Filter Include="Source Files\Renderer">
       <UniqueIdentifier>{f7244865-a976-46ce-8d3f-1d5d3267d328}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\shaders">
+      <UniqueIdentifier>{ff86a382-2950-494b-9149-f578bafe53dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -87,14 +90,14 @@
     <ClCompile Include="RenderableMeshScene.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="glad.c">
+    <ClCompile Include="shader_program.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="shader_program.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="shader_variables.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Source Files\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,19 +152,22 @@
     <ClInclude Include="RenderData.h">
       <Filter>Header Files\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="glad.h">
+    <ClInclude Include="shader_program.h">
       <Filter>Header Files\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="shader_program.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="shader_variables.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Header Files\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SampleScene.json">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="test.frag">
+      <Filter>Resource Files\shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

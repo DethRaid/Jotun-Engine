@@ -1,6 +1,5 @@
 #pragma once
 #include "stdafx.h"
-#include "glad.h"
 
 namespace Renderer {
     class shader_variable {

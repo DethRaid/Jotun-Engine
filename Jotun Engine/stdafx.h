@@ -25,3 +25,6 @@
 
 #include <rapidjson/rapidjson.h>
 #include <rapidjson/document.h>
+
+#include <glbinding/gl/gl.h>
+using namespace gl;
