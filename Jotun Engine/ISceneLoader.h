@@ -2,7 +2,7 @@
 
 #include "stdafx.h"
 
-namespace CoreServices {
+namespace core_services {
     /*!\brief Defines an interface for all scene loaders*/
     class ISceneLoader {
     public:

@@ -2,7 +2,7 @@
 
 #include "stdafx.h"
 
-namespace CoreServices {
+namespace core_services {
     class component {
     public:
         long entityId;

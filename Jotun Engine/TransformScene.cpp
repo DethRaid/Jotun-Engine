@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "TransformScene.h"
 
-namespace CoreServices {
+namespace core_services {
     TransformScene::TransformScene() {
         m_handled_type = "transform";
     }

@@ -7,7 +7,7 @@
 
 #include "Transform.h"
 
-namespace CoreServices {
+namespace core_services {
     class TransformScene : public ISceneLoader, public Scene<Transform> {
     public:
         TransformScene();

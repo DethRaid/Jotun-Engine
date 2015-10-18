@@ -2,7 +2,7 @@
 
 #include "stdafx.h"
 
-namespace CoreServices {
+namespace core_services {
     class Time {
     public:
         static std::chrono::system_clock::time_point curTime;

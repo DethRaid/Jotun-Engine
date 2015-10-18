@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "JsonUtils.h"
 
-namespace CoreServices {
+namespace core_services {
     namespace JsonUtils {
         glm::vec3 loadVec3( rapidjson::Value &value ) {
             assert( value.IsArray() );

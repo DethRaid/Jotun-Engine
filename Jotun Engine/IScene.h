@@ -2,7 +2,7 @@
 
 #include "stdafx.h"
 
-namespace CoreServices {
+namespace core_services {
     /*!\brief Defines an interface for anyone wishing to implement their own scene*/
     // TODO: More useful getting functions
     template <class T>

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "SceneFileLoader.h"
 
-namespace CoreServices {
+namespace core_services {
     SceneFileLoader::SceneFileLoader() {}
 
     SceneFileLoader::~SceneFileLoader() {}

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Transform.h"
 
-namespace CoreServices {
+namespace core_services {
     void Transform::load_from_json( rapidjson::Value &json ) {
         entityId = json["entity_id"].GetInt64();
         position = JsonUtils::loadVec3( json["position"] );

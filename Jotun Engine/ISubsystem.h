@@ -2,9 +2,9 @@
 
 #include "ISceneLoader.h"
 
-namespace CoreServices {
+namespace core_services {
 
-    /*~\brief Interface for all the subsystems of the JotunEngine or games built with it*/
+    /*~\brief Interface for all the subsystems of the Jotunengine or games built with it*/
     class ISubsystem {
     public:
 

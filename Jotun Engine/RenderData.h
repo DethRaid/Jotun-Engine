@@ -2,7 +2,6 @@
 
 #include "stdafx.h"
 
-#include <glbinding/gl/gl.h>
 #include "Component.h"
 
 namespace Renderer {

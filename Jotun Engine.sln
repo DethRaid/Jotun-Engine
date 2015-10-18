@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Jotun Engine", "Jotun Engine\Jotun Engine.vcxproj", "{80775B51-CF38-4035-9166-C28B96526FF4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReflectionGen", "ReflectionGen\ReflectionGen.vcxproj", "{D4C4794D-9C6B-410C-9304-2D60333CF909}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -43,22 +41,6 @@ Global
 		{80775B51-CF38-4035-9166-C28B96526FF4}.RelWithDebInfo|Win32.Build.0 = Release|Win32
 		{80775B51-CF38-4035-9166-C28B96526FF4}.RelWithDebInfo|x64.ActiveCfg = Release|Win32
 		{80775B51-CF38-4035-9166-C28B96526FF4}.RelWithDebInfo|x64.Build.0 = Release|Win32
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Debug|ARM.ActiveCfg = Debug|Win32
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Debug|Win32.ActiveCfg = Debug|Win32
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Debug|Win32.Build.0 = Debug|Win32
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Debug|x64.ActiveCfg = Debug|x64
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Debug|x64.Build.0 = Debug|x64
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.MinSizeRel|ARM.ActiveCfg = Release|x64
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.MinSizeRel|Win32.ActiveCfg = Release|Win32
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.MinSizeRel|x64.ActiveCfg = Release|x64
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Release|ARM.ActiveCfg = Release|Win32
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Release|Win32.ActiveCfg = Release|Win32
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Release|Win32.Build.0 = Release|Win32
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Release|x64.ActiveCfg = Release|x64
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.Release|x64.Build.0 = Release|x64
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.RelWithDebInfo|ARM.ActiveCfg = Release|x64
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
-		{D4C4794D-9C6B-410C-9304-2D60333CF909}.RelWithDebInfo|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

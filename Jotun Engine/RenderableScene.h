@@ -6,7 +6,7 @@
 #include "ISceneLoader.h"
 
 namespace Renderer {
-    class RenderableScene : public CoreServices::ISceneLoader {
+    class RenderableScene : public core_services::ISceneLoader {
     public:
         RenderableScene();
         virtual ~RenderableScene();
