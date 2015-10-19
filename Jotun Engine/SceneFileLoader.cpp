@@ -24,7 +24,7 @@ namespace core_services {
             }
             sceneDoc.Parse( accum.c_str() );
 
-            std::cout << "Config: " <<sceneDoc["config"]["resourcedir"].GetString() << "\n";
+            std::cout << "Config: " << sceneDoc["config"]["resource_dir"].GetString() << "\n";
 
             std::cout << "Loaded scene\n";
 

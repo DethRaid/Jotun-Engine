@@ -10,10 +10,10 @@
 INITIALIZE_EASYLOGGINGPP
 
 int main( int argc, char *argv[] ) {
-    //std::string fileName = "SampleScene.json";
+    std::string fileName = "SampleScene.json";
 
     core_services::engine engine;
-    //engine.load_scene( fileName );
+    engine.load_scene( fileName );
 
     //Renderer::shader_program test_prog;
 

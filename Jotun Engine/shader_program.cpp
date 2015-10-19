@@ -1,6 +1,6 @@
 #include "shader_program.h"
 
-namespace Renderer {
+namespace renderer {
     shader_program::shader_program() : linked( false )
     {
 
@@ -27,7 +27,7 @@ namespace Renderer {
         linked = true;
     }
 
-    std::string& shader_program::read_shader_file( std::string& filename ) {
+    std::string shader_program::read_shader_file( std::string& filename ) {
         std::ifstream file( filename.c_str() );
 
         if( file.is_open() ) {

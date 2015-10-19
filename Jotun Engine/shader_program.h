@@ -5,7 +5,7 @@
 #include <exception>
 #include <fstream>
 
-namespace Renderer {
+namespace renderer {
     class shader_program_already_linked_exception : public std::exception {};
 
     class shader_program {
@@ -34,6 +34,6 @@ namespace Renderer {
 
         bool linked;
 
-        std::string& read_shader_file( std::string& filename );
+        std::string read_shader_file( std::string& filename );
     };
 }

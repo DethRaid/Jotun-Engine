@@ -15,6 +15,7 @@ namespace core_services {
             Transform newTransform;
             newTransform.load_from_json( *itr );
             components.push_back( newTransform );
+            std::cout << "Loaded new transform " << newTransform << "\n";
         }
     }
 }

@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "shader_program.h"
 
-namespace Renderer {
+namespace renderer {
     class material {
     public:
         material( std::string& name );

@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 
-namespace Renderer {
+namespace renderer {
     class shader_variable {
     public:
         shader_variable( std::string& name, GLuint gl_name );

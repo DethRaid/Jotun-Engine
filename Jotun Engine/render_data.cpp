@@ -1,9 +1,8 @@
-#include "material.h"
+#include "render_data.h"
 
-namespace Renderer {
+namespace renderer {
     material::material( std::string& name ) :
-        m_name( name )
-    {}
+        m_name( name ) {}
 
     material::~material() {}
 

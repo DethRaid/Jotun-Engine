@@ -4,9 +4,11 @@ namespace renderer {
     render_system_gl45::render_system_gl45() {
         logger = el::Loggers::getLogger( "render_system_gl45" );
 
-        window = new sdl_window( 4, 5 );
+        m_window = new sdl_window( 4, 5 );
 
-        logger->info( "Initialized window with OpenGL version 4.5" );
+        logger->info( "Window should close? %s\n", m_window->should_close() ? "true" : "false" );
+
+        logger->info( "Initialized window with OpenGL version 4.5\n" );
     }
 
     render_system_gl45::~render_system_gl45() {}
@@ -15,7 +17,7 @@ namespace renderer {
     void render_system_gl45::render() {}
 
     core_services::iwindow* render_system_gl45::get_window() {
-        return window;
+        return m_window;
     }
 
     void render_system_gl45::init() {}

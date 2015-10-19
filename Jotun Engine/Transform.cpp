@@ -11,7 +11,7 @@ namespace core_services {
 
     std::ostream& operator<<( std::ostream& os, const Transform obj ) {
         os << "{"
-            << "\"entityid\":"
+            << "\"entity_id\":" <<obj.entityId << " "
             << "\"position\":[" << obj.position.x << "," << obj.position.y << "," << obj.position.z << "],"
             << "\"rotation\":[" << obj.rotation.x << "," << obj.rotation.y << "," << obj.rotation.z << "],"
             << "\"scale\":[" << obj.scale.x << "," << obj.scale.y << "," << obj.scale.z << "]"

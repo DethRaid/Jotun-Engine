@@ -29,7 +29,7 @@ namespace renderer {
         virtual core_services::ISceneLoader* get_data_loader();
 
     private:
-        sdl_window *window;
+        sdl_window *m_window;
 
         el::Logger *logger;
     };

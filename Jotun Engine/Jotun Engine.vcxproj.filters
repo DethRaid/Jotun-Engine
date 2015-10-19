@@ -190,13 +190,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="SampleScene.json">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="test.frag">
       <Filter>Resource Files\shaders</Filter>
     </None>
     <None Include="logging.conf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="SampleScene.json">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

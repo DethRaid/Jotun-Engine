@@ -4,13 +4,17 @@
 
 #include "Component.h"
 
-namespace Renderer {
-    struct renderable_mesh : CoreServices::component {
+namespace renderer {
+    class renderable_mesh : core_services::component {
+    public:
         long m_material_id;
         long m_mesh_id;
+
+        virtual void load_from_json( rapidjson::Value &json );
     };
 
-    struct light : CoreServices::component {
+    class light : core_services::component {
+    public:
         enum type {
             kDirectional,
             kPoint,
@@ -21,5 +25,7 @@ namespace Renderer {
         glm::vec3 m_color;
         bool m_cast_shadow;
         float m_strength;
+
+        virtual void load_from_json( rapidjson::Value &json );
     };
 }

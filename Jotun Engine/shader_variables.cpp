@@ -1,6 +1,6 @@
 #include "shader_variables.h"
 
-namespace Renderer {
+namespace renderer {
     shader_variable::shader_variable( std::string& name, GLuint gl_name ) {
         m_name = name;
         m_gl_name = gl_name;
