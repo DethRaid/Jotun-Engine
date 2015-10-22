@@ -15,10 +15,15 @@ int main( int argc, char *argv[] ) {
     core_services::engine engine;
     engine.load_scene( fileName );
 
-    //Renderer::shader_program test_prog;
+    if( !gladLoadGL() ) {
+        std::cerr << "Error: Could not load OpenGL functions\n";
+    } else {
 
-    //std::string shader_file_name( "test.frag" );
-    //test_prog.add_shader( GL_FRAGMENT_SHADER, shader_file_name );
+        renderer::shader_program test_prog;
+
+        std::string shader_file_name( "test.frag" );
+        test_prog.add_shader( GL_FRAGMENT_SHADER, shader_file_name );
+    }
 
     system( "PAUSE" );
     return 0;

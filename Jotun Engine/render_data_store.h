@@ -1,5 +1,6 @@
 #pragma once
 
+#include "render_data.h"
 #include "render_components.h"
 
 namespace renderer {

@@ -23,7 +23,9 @@ namespace renderer {
 
         /*!\brief Links this program
 
-        This method should be called after you've added all your shaders. Adding a shader after linking will get you a nice program_already_linked_exception*/
+        This method should be called after you've added all your shaders.
+        Adding a shader after linking will get you a nice
+        shader_program_already_linked_exception*/
         void link_program();
 
     private:

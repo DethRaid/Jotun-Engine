@@ -6,7 +6,7 @@
 namespace renderer {
     class material {
     public:
-        material( std::string& name );
+        material( std::string& name, shader_program *program );
         ~material();
 
         /*!\brief Sets the shader program that this material will use for rendering*/
@@ -16,13 +16,14 @@ namespace renderer {
         void upload_values();
 
         /*!\brief Sets a variable in CPU memory, but does not upload it to the GPU*/
-        void upload_variable( std::string& var_name, void* var_data );
+        void set_variable( std::string& var_name, void* var_data );
 
     private:
         long m_id;
         std::string m_name;
         shader_program* m_shader_program;
 
+        std::vector<std::string> m_variable_order;
         std::unordered_map<std::string, void*> m_variable_values;
     };
 }

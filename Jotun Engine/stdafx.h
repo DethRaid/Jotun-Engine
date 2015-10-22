@@ -21,7 +21,7 @@
 #include <vector>
 #include <unordered_map>
 
-#include <gl/glm/common.hpp>
+#include <gl/glm/glm.hpp>
 
 #include <rapidjson/rapidjson.h>
 #include <rapidjson/document.h>

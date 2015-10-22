@@ -1,38 +1,33 @@
 #pragma once
 #include "stdafx.h"
+#include <exception>
 
 namespace renderer {
     class shader_variable {
     public:
-        shader_variable( std::string& name, GLuint gl_name );
+        enum type {
+            INT,
+            FLOAT,
+            VEC3,
+            VEC4,
+            MAT3,
+            MAT4,
+        };
 
-        virtual void upload_data( void* data ) = 0;
+        shader_variable( GLuint gl_name, type type );
+
+        void upload_data( int data );
+        void upload_data( float data );
+        void upload_data( glm::vec3 &data );
+        void upload_data( glm::vec4 &data );
+        void upload_data( glm::mat3 &data );
+        void upload_data( glm::mat4 &data );
+
+        type get_type();
     protected:
-        std::string m_name;
         GLuint m_gl_name;
+        type m_type;
     };
 
-    class int_shader_variable : public shader_variable {
-        int_shader_variable( std::string& name, GLuint gl_name );
-
-        virtual void upload_data( void* data );
-    };
-
-    class float_shader_variable : public shader_variable {
-        float_shader_variable( std::string& name, GLuint gl_name );
-
-        virtual void upload_data( void* data );
-    };
-
-    class float3_shader_variable : public shader_variable {
-        float3_shader_variable( std::string& name, GLuint gl_name );
-
-        virtual void upload_data( void* data );
-    };
-
-    class mat4_shader_variable : public shader_variable {
-        mat4_shader_variable( std::string& name, GLuint gl_name );
-
-        virtual void upload_data( void* data );
-    };
+    
 }

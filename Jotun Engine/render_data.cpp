@@ -1,8 +1,10 @@
 #include "render_data.h"
 
 namespace renderer {
-    material::material( std::string& name ) :
-        m_name( name ) {}
+    material::material( std::string& name, shader_program* program ) :
+        m_name( name ) {
+        m_shader_program = program;
+    }
 
     material::~material() {}
 
@@ -16,7 +18,11 @@ namespace renderer {
         }
     }
 
-    void material::upload_variable( std::string& var_name, void* var_data ) {
-        m_variable_values.emplace( var_name, var_data );
+    void material::set_variable( std::string& var_name, void* var_data ) {
+        if( m_variable_values.find( var_name ) == m_variable_values.end() ) {
+            // There's nothing named var_name in the map yet
+            m_variable_order.push_back( var_name );
+        }
+        m_variable_values[var_name] = var_data;
     }
 }

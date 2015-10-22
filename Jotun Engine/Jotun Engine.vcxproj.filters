@@ -40,6 +40,12 @@
     <Filter Include="Resource Files\shaders">
       <UniqueIdentifier>{ff86a382-2950-494b-9149-f578bafe53dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Renderer\data">
+      <UniqueIdentifier>{2155c1ec-dfd2-4c74-9a4b-baae439c123e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\data">
+      <UniqueIdentifier>{e06ce4a8-764f-4d87-866a-783023fe6554}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -90,15 +96,6 @@
     <ClCompile Include="RenderableMeshScene.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="shader_program.cpp">
-      <Filter>Source Files\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="shader_variables.cpp">
-      <Filter>Source Files\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="Material.cpp">
-      <Filter>Source Files\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
@@ -110,6 +107,21 @@
     </ClCompile>
     <ClCompile Include="iwindow.cpp">
       <Filter>Source Files\Core Services\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="render_data_store.cpp">
+      <Filter>Source Files\Renderer\data</Filter>
+    </ClCompile>
+    <ClCompile Include="render_components.cpp">
+      <Filter>Source Files\Renderer\data</Filter>
+    </ClCompile>
+    <ClCompile Include="render_data.cpp">
+      <Filter>Source Files\Renderer\data</Filter>
+    </ClCompile>
+    <ClCompile Include="shader_program.cpp">
+      <Filter>Source Files\Renderer\data</Filter>
+    </ClCompile>
+    <ClCompile Include="shader_variables.cpp">
+      <Filter>Source Files\Renderer\data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,18 +173,6 @@
     <ClInclude Include="RenderableMeshScene.h">
       <Filter>Header Files\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="RenderData.h">
-      <Filter>Header Files\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="shader_program.h">
-      <Filter>Header Files\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="shader_variables.h">
-      <Filter>Header Files\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>Header Files\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="glad\glad.h">
       <Filter>Header Files\Renderer</Filter>
     </ClInclude>
@@ -187,6 +187,21 @@
     </ClInclude>
     <ClInclude Include="sdl_window.h">
       <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="render_components.h">
+      <Filter>Header Files\Renderer\data</Filter>
+    </ClInclude>
+    <ClInclude Include="render_data_store.h">
+      <Filter>Header Files\Renderer\data</Filter>
+    </ClInclude>
+    <ClInclude Include="shader_program.h">
+      <Filter>Header Files\Renderer\data</Filter>
+    </ClInclude>
+    <ClInclude Include="render_data.h">
+      <Filter>Header Files\Renderer\data</Filter>
+    </ClInclude>
+    <ClInclude Include="shader_variables.h">
+      <Filter>Header Files\Renderer\data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
