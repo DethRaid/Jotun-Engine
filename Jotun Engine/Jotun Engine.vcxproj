@@ -60,7 +60,6 @@
     <ClInclude Include="shader_program.h" />
     <ClInclude Include="shader_variables.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TransformScene.h" />

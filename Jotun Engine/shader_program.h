@@ -7,6 +7,7 @@
 
 namespace renderer {
     class shader_program_already_linked_exception : public std::exception {};
+    class program_linking_failure_exception : public std::exception {};
 
     class shader_program {
     public:
@@ -32,10 +33,25 @@ namespace renderer {
         GLuint m_gl_name;
 
         // !\brief holds all the available uniform shader variable
-        std::unordered_map<std::string, shader_variable*> m_variables;
+        std::unordered_map<std::string, shader_variable> m_variables;
+
+        /*!\brief Holds the type of added shaders in the keys and the OpenGL name of the added shaders in the value.
+        
+        Shaders are only added if they've been successfully compiled. They can be added through the add_shader() method*/
+        std::vector<GLuint> m_added_shaders;
 
         bool linked;
 
         std::string read_shader_file( std::string& filename );
+
+        /*!\brief Checks for compilation errors for the given shader
+        
+        \return False if the compilation succeeded, true otherwise*/
+        bool check_for_shader_errors( GLuint shader_to_check );
+
+        /*!\brief Goes through every shader_variable stored in m_variables, getting the OpenGL location of each one*/
+        void get_variable_locations();
+
+        bool check_for_linking_errors();
     };
 }

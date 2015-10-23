@@ -1,9 +1,28 @@
 #include "shader_variables.h"
 
 namespace renderer {
-    shader_variable::shader_variable( GLuint gl_name, type type ) {
-        m_gl_name = gl_name;
-        m_type = type;
+    shader_variable::shader_variable( std::string var_type ) {
+        if( var_type == "int" ) {
+            m_type = INT;
+
+        } else if( var_type == "float" ) {
+            m_type = FLOAT;
+
+        } else if( var_type == "vec3" ) {
+            m_type = VEC3;
+
+        } else if( var_type == "vec4" ) {
+            m_type = VEC4;
+
+        } else if( var_type == "mat3" ) {
+            m_type = MAT3;
+
+        } else if( var_type == "mat4" ) {
+            m_type = MAT4;
+
+        } else {
+            std::cerr << "Unsupported variable type " << var_type << ". Senpai fix plz\n";
+        }
     }
 
     void shader_variable::upload_data( int data ) {
@@ -52,6 +71,10 @@ namespace renderer {
         }
 
         glUniformMatrix3fv( m_gl_name, 1, GL_FALSE, &data[0][0] );
+    }
+
+    void shader_variable::set_gl_name( GLuint gl_name ) {
+        m_gl_name = gl_name;
     }
 
     shader_variable::type shader_variable::get_type() {

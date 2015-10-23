@@ -14,7 +14,9 @@ namespace renderer {
             MAT4,
         };
 
-        shader_variable( GLuint gl_name, type type );
+        // Added so tuples won't yell at me
+        shader_variable() {}
+        shader_variable( std::string var_type );
 
         void upload_data( int data );
         void upload_data( float data );
@@ -23,6 +25,7 @@ namespace renderer {
         void upload_data( glm::mat3 &data );
         void upload_data( glm::mat4 &data );
 
+        void set_gl_name( GLuint gl_name );
         type get_type();
     protected:
         GLuint m_gl_name;

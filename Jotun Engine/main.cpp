@@ -1,5 +1,5 @@
 /*
- * Main file of the Jotun engine excutable. This file will include code from
+ * Main file of the Jotun engine executable. This file will include code from
  * the other systems of the Jotun engine
  */
 

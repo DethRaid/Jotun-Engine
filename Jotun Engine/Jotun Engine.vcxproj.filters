@@ -155,9 +155,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files\Core Services</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files\Core Services</Filter>
-    </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>Header Files\Core Services</Filter>
     </ClInclude>
