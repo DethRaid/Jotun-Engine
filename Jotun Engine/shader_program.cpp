@@ -60,8 +60,6 @@ namespace renderer {
 
         if( !check_for_shader_errors( shader_name ) ) {
             m_added_shaders.push_back( shader_name );
-        } else {
-            get_variable_locations();
         }
     }
 
@@ -84,10 +82,7 @@ namespace renderer {
         }
 
         // No errors during linking? Let's get locations for our variables
-        for( auto &var : m_variables ) {
-            int location = glGetUniformLocation( m_gl_name, var.first.c_str() );
-            var.second.set_gl_name( location );
-        }
+        get_variable_locations();
     }
 
     std::string shader_program::read_shader_file( std::string& filename ) {
@@ -154,7 +149,12 @@ namespace renderer {
     }
 
     void shader_program::get_variable_locations() {
+        for( auto &var : m_variables ) {
+            int location = glGetUniformLocation( m_gl_name, var.first.c_str() );
+            var.second.set_gl_name( location );
 
+            std::cout << "Set location of variable " << var.first << "to" << location <<"\n";
+        }
     }
 
     bool shader_program::check_for_linking_errors() {
@@ -165,10 +165,10 @@ namespace renderer {
             GLint log_length = 0;
             glGetProgramiv( m_gl_name, GL_INFO_LOG_LENGTH, &log_length );
 
-            std::vector<GLchar> info_log( log_length );
-            glGetProgramInfoLog( m_gl_name, log_length, &log_length, &info_log[0] );
+            GLchar * info_log = (GLchar*)malloc( log_length * sizeof( GLchar) );
+            glGetProgramInfoLog( m_gl_name, log_length, &log_length, info_log );
 
-            std::cerr << "Error linking program " << m_gl_name << ":\n" << &info_log[0] << "\n";
+            std::cerr << "Error linking program " << m_gl_name << ":\n" << info_log << "\n";
 
             return true;
         }

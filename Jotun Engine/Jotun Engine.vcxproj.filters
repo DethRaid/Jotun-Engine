@@ -46,6 +46,12 @@
     <Filter Include="Source Files\Renderer\data">
       <UniqueIdentifier>{e06ce4a8-764f-4d87-866a-783023fe6554}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Renderer\loaders">
+      <UniqueIdentifier>{a577f198-7284-406d-9016-76aacdbca723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer\loaders">
+      <UniqueIdentifier>{74488f50-553f-4c79-9039-75a0018366d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -64,9 +70,6 @@
       <Filter>Source Files\Core Services\Interfaces</Filter>
     </ClCompile>
     <ClCompile Include="IScene.cpp">
-      <Filter>Source Files\Core Services\Interfaces</Filter>
-    </ClCompile>
-    <ClCompile Include="ISceneLoader.cpp">
       <Filter>Source Files\Core Services\Interfaces</Filter>
     </ClCompile>
     <ClCompile Include="ISubsystem.cpp">
@@ -123,6 +126,15 @@
     <ClCompile Include="shader_variables.cpp">
       <Filter>Source Files\Renderer\data</Filter>
     </ClCompile>
+    <ClCompile Include="component_loader.cpp">
+      <Filter>Source Files\Core Services</Filter>
+    </ClCompile>
+    <ClCompile Include="material_loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="iloadable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -138,9 +150,6 @@
       <Filter>Header Files\Core Services\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="IScene.h">
-      <Filter>Header Files\Core Services\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="ISceneLoader.h">
       <Filter>Header Files\Core Services\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="ISubsystem.h">
@@ -199,6 +208,15 @@
     </ClInclude>
     <ClInclude Include="shader_variables.h">
       <Filter>Header Files\Renderer\data</Filter>
+    </ClInclude>
+    <ClInclude Include="component_loader.h">
+      <Filter>Header Files\Core Services</Filter>
+    </ClInclude>
+    <ClInclude Include="material_loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iloadable.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

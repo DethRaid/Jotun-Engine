@@ -3,17 +3,16 @@
 #include "stdafx.h"
 
 #include "IScene.h"
-#include "ISceneLoader.h"
-
 #include "Transform.h"
+#include "component_loader.h"
 
 namespace core_services {
-    class TransformScene : public ISceneLoader, public Scene<Transform> {
+    class transform_scene : public scene<transform>, public component_loader {
     public:
-        TransformScene();
-        virtual ~TransformScene();
+        transform_scene();
+        virtual ~transform_scene();
 
-        /* ISceneLoader methods */
-        virtual void load_scene_from_json( rapidjson::Value &json );
+    protected:
+        virtual void load_one_component( rapidjson::Value &json );
     };
 }

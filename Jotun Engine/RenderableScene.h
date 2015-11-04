@@ -3,16 +3,13 @@
 #include "stdafx.h"
 
 #include "IScene.h"
-#include "ISceneLoader.h"
+#include "component_loader.h"
 
 namespace Renderer {
-    class RenderableScene : public core_services::ISceneLoader {
+    class RenderableScene {
     public:
         RenderableScene();
         virtual ~RenderableScene();
-
-        /* ISceneLoader methods */
-        //virtual void load_scene_from_json( rapidjson::Value& json );
     };
 }
 

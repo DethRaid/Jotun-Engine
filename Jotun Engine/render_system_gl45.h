@@ -7,6 +7,7 @@
 
 #include "IRenderSystem.h"
 #include "sdl_window.h"
+#include "component_loader.h"
 
 namespace renderer {
     class render_system_gl45 : public core_services::irender_system {
@@ -26,7 +27,7 @@ namespace renderer {
         virtual void update();
         virtual void fixed_update();
         virtual void shutdown();
-        virtual core_services::ISceneLoader* get_data_loader();
+        virtual core_services::component_loader* get_data_loader();
 
     private:
         sdl_window *m_window;

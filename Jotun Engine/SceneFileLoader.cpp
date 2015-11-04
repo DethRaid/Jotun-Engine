@@ -6,7 +6,7 @@ namespace core_services {
 
     SceneFileLoader::~SceneFileLoader() {}
 
-    void SceneFileLoader::register_scene_loader( ISceneLoader *loader ) {
+    void SceneFileLoader::register_scene_loader( component_loader *loader ) {
         sceneCallbacks.emplace( loader->get_handled_type(), loader );
     }
 
@@ -30,8 +30,9 @@ namespace core_services {
 
             // TODO: Assume there might be an error, maybe?
             for( auto kv : sceneCallbacks ) {
+                std::cout << "Loading data for type " << kv.first << "\n";
                 try {
-                    kv.second->load_scene_from_json( sceneDoc[kv.first.c_str()] );
+                    kv.second->load_from_json( sceneDoc[kv.first.c_str()]["values"] );
                 } catch( ... ) {
                     std::cout << "Exception occured :(\n";
                 }

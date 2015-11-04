@@ -1,6 +1,8 @@
 #include "render_data.h"
+#include "render_data_store.h"
 
 namespace renderer {
+    /* Material methods */
     material::material( std::string& name, shader_program* program ) :
         m_name( name ) {
         m_shader_program = program;
@@ -24,5 +26,14 @@ namespace renderer {
             m_variable_order.push_back( var_name );
         }
         m_variable_values[var_name] = var_data;
+    }
+
+    const std::string material::get_name() {
+        return m_name;
+    }
+
+    /* Texture methods */
+    GLint texture::get_gl_name() {
+        return m_gl_name;
     }
 }

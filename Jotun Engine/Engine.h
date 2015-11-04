@@ -26,10 +26,10 @@ namespace core_services {
 
         /* Getters (and setters, if need be) */
         SceneFileLoader & get_scene_file_loader();
-        TransformScene & get_transform_scene();
+        transform_scene & get_transform_scene();
     private:
         SceneFileLoader fileLoader;
-        TransformScene transformScene;
+        transform_scene transformScene;
         std::vector<ISubsystem*> subsystems;
         irender_system *m_render_system;
         iphysics_system *physicsSystem;

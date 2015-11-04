@@ -6,14 +6,14 @@
 #include "JsonUtils.h"
 
 namespace core_services {
-    class Transform : public component {
+    class transform : public component {
     public:
+        transform( rapidjson::Value &json );
+
         glm::vec3 position;
         glm::vec3 rotation;
         glm::vec3 scale;
-
-        virtual void load_from_json( rapidjson::Value &json );
     };
 
-    std::ostream& operator<<( std::ostream& os, const Transform obj );
+    std::ostream& operator<<( std::ostream& os, const transform obj );
 }

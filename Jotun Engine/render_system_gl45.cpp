@@ -6,9 +6,9 @@ namespace renderer {
 
         m_window = new sdl_window( 4, 5 );
 
-        logger->info( "Window should close? %s\n", m_window->should_close() ? "true" : "false" );
+        gladLoadGL();
 
-        logger->info( "Initialized window with OpenGL version 4.5\n" );
+        logger->info( "Initialized window with OpenGL version %d %d\n", GLVersion.major, GLVersion.minor );
     }
 
     render_system_gl45::~render_system_gl45() {}
@@ -28,7 +28,7 @@ namespace renderer {
     void render_system_gl45::fixed_update() {}
     void render_system_gl45::shutdown() {}
 
-    core_services::ISceneLoader* render_system_gl45::get_data_loader() {
+    core_services::component_loader* render_system_gl45::get_data_loader() {
         return NULL;
     }
 }

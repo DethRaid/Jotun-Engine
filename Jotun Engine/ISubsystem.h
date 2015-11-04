@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ISceneLoader.h"
+#include "component_loader.h"
 
 namespace core_services {
 
@@ -30,6 +30,6 @@ namespace core_services {
         virtual void shutdown() = 0;
 
         /*!\brief Returns the ISceneLoader this subsystem uses to load all its data*/
-        virtual ISceneLoader* get_data_loader() = 0;
+        virtual component_loader* get_data_loader() = 0;
     };
 }

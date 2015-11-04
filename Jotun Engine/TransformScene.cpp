@@ -2,20 +2,14 @@
 #include "TransformScene.h"
 
 namespace core_services {
-    TransformScene::TransformScene() {
+    transform_scene::transform_scene() {
         m_handled_type = "transform";
     }
 
-    TransformScene::~TransformScene() {}
+    transform_scene::~transform_scene() {}
 
-    void TransformScene::load_scene_from_json( rapidjson::Value &json ) {
-        rapidjson::Value& values = json["values"];
-
-        for( auto itr = values.Begin(); itr != values.End(); ++itr ) {
-            Transform newTransform;
-            newTransform.load_from_json( *itr );
-            components.push_back( newTransform );
-            std::cout << "Loaded new transform " << newTransform << "\n";
-        }
+    void transform_scene::load_one_component( rapidjson::Value &json ) {
+        transform new_transform( json );
+        m_components.push_back( new_transform );
     }
 }

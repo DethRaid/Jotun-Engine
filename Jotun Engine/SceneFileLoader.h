@@ -2,9 +2,10 @@
 
 #include "stdafx.h"
 
-#include "ISceneLoader.h"
+#include "component_loader.h"
 
 namespace core_services {
+
     class SceneFileLoader {
     public:
         SceneFileLoader();
@@ -13,7 +14,7 @@ namespace core_services {
          *
          * Loader functions have a void return type and take a single parameter, a rapidjson::Document*
          */
-        void register_scene_loader( ISceneLoader *loader );
+        void register_scene_loader( component_loader *loader );
 
         /*!\brief Loads the scene file with the given filename, calling the appropriate loader function
         
@@ -22,6 +23,6 @@ namespace core_services {
         void loadScene( std::string &sceneFileName );
     private:
         rapidjson::Document sceneDoc;
-        std::unordered_map<std::string, ISceneLoader*> sceneCallbacks;
+        std::unordered_map<std::string, component_loader*> sceneCallbacks;
     };
 }

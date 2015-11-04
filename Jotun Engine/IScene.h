@@ -6,19 +6,19 @@ namespace core_services {
     /*!\brief Defines an interface for anyone wishing to implement their own scene*/
     // TODO: More useful getting functions
     template <class T>
-    class Scene {
+    class scene {
     public:
-        Scene() {}
-        virtual ~Scene() {}
+        scene() {}
+        virtual ~scene() {}
 
         const std::vector<T> & getComponents() const;
 
     protected:
-        std::vector<T> components;
+        std::vector<T> m_components;
     };
 
     template<class T>
-    inline const std::vector<T>& Scene<T>::getComponents() const {
-        return components;
+    inline const std::vector<T>& scene<T>::getComponents() const {
+        return m_components;
     }
 }
