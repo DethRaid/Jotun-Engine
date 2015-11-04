@@ -8,7 +8,7 @@ namespace renderer {
     render_data_store::~render_data_store() {}
 
     void render_data_store::load_material( rapidjson::Value &json ) {
-        m_name = json["name"].GetString();
+        std::string material_name = json["name"].GetString();
 
         // Read the shaders
         std::string frag_shader_name = json["fragment_shader"].GetString();

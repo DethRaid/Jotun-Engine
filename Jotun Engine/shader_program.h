@@ -32,6 +32,12 @@ namespace renderer {
     private:
         GLuint m_gl_name;
 
+        std::string m_vert_shader_name;
+        std::string m_frag_shader_name;
+        std::string m_geom_shader_name;
+        std::string m_tese_shader_name;
+        std::string m_tesc_shader_name;
+
         // !\brief holds all the available uniform shader variable
         std::unordered_map<std::string, shader_variable> m_variables;
 
@@ -40,6 +46,7 @@ namespace renderer {
         Shaders are only added if they've been successfully compiled. They can be added through the add_shader() method*/
         std::vector<GLuint> m_added_shaders;
 
+        /*!\brief If true, this shader_program has already been linked and no new shaders can be added to it*/
         bool linked;
 
         std::string read_shader_file( std::string& filename );

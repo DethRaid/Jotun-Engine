@@ -6,9 +6,6 @@
 namespace renderer {
     class material {
     public:
-        /*!\brief Loads a material from the given JSON object*/
-        material( rapidjson::Value &json );
-
         material( std::string& name, shader_program *program );
         ~material();
 

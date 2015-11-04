@@ -47,6 +47,24 @@ namespace renderer {
             throw shader_program_already_linked_exception();
         }
 
+        switch( shader_type ) {
+        case GL_VERTEX_SHADER:
+            m_vert_shader_name = source_file_name;
+            break;
+        case GL_FRAGMENT_SHADER:
+            m_frag_shader_name = source_file_name;
+            break;
+        case GL_GEOMETRY_SHADER:
+            m_geom_shader_name = source_file_name;
+            break;
+        case GL_TESS_CONTROL_SHADER:
+            m_tesc_shader_name = source_file_name;
+            break;
+        case GL_TESS_EVALUATION_SHADER:
+            m_tese_shader_name = source_file_name;
+            break;
+        }
+
         GLuint shader_name = glCreateShader( shader_type );
 
         // Read in the shader source, getting uniforms
