@@ -1,4 +1,5 @@
 {
+  "$schema": "SceneFileSchema.json",
   "_comment": [
     "Here's how the components are stored:",
     " - Each type of component is stored in a sequence of mappings preceded by",
@@ -71,8 +72,7 @@
     "values": [
       {
         "name": "floor",
-        "fragment_shader": "gbuf_pbs.frag",
-        "vertex_shader": "gbuf.vert",
+        "shader_program": "basic_pbr",
         "variables": [
           {
             "name": "albedo_tex",
@@ -93,10 +93,7 @@
       },
       {
         "name": "sphere_tess",
-        "fragment_shader": "gbuf_pbs.frag",
-        "tese_shader": "gbuf.tese",
-        "tesc_shader": "gbuf.tesc",
-        "vertex_shader": "gbuf.vert",
+        "shader_program": "basic_pbr",
         "variables": [
           {
             "name": "albedo_tex",
@@ -119,6 +116,29 @@
             "type": "texture"
           }
         ]
+      }
+    ]
+  },
+
+  "shader_program": {
+    "_comment": [
+      "Holds all the shader programs that the Jotun Engine uses. They have a separate JSON",
+      "object mostly to make them easier to load. Note that shader_programs MUST have a vert",
+      "and frag shader. They may optionally have a geometry shader, tesselation evaluation",
+      "shader, and tessellation control shader. You must specify both tesselation shaders.",
+      "If you only provide one, then it'll be ignored. Don't say I didn't warn you"
+    ],
+    "values": [
+      {
+        "name": "basic_pbr",
+        "vert_shader": "static.vert",
+        "frag_shader": "basic_pbr.frag"
+      },
+      {
+        "name": "sphere_light",
+        "vert_shader": "static.vert",
+        "geom_shader": "gen_light.geom",
+        "frag_shader": "pbr_lighting.frag"
       }
     ]
   }

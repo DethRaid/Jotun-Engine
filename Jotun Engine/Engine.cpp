@@ -1,6 +1,7 @@
 #include "engine.h"
 
 #include "render_system_gl45.h"
+#include "config.h"
 
 namespace core_services {
     engine::engine() {
@@ -38,7 +39,7 @@ namespace core_services {
         return fileLoader;
     }
 
-    TransformScene & engine::get_transform_scene() {
+    transform_scene & engine::get_transform_scene() {
         return transformScene;
     }
 

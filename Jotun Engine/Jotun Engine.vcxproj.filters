@@ -54,9 +54,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Core Services\Components</Filter>
     </ClCompile>
@@ -129,11 +126,8 @@
     <ClCompile Include="component_loader.cpp">
       <Filter>Source Files\Core Services</Filter>
     </ClCompile>
-    <ClCompile Include="material_loader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="iloadable.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="config.cpp">
+      <Filter>Source Files\Core Services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -212,11 +206,8 @@
     <ClInclude Include="component_loader.h">
       <Filter>Header Files\Core Services</Filter>
     </ClInclude>
-    <ClInclude Include="material_loader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="iloadable.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="config.h">
+      <Filter>Header Files\Core Services</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +218,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="SampleScene.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="SceneFileSchema.json">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

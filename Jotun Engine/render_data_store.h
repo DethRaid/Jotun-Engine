@@ -27,6 +27,10 @@ namespace renderer {
         std::unordered_map<std::string, texture> m_textures;
         std::unordered_map<std::string, shader_program> m_shaders;
 
+        /* Simple load their data from the provided JSON object */
         void load_material( rapidjson::Value &json );
+        void load_shader( rapidjson::Value &json );
+
+        /* Aquire the JSON object */
     };
 }

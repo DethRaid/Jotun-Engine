@@ -1,5 +1,5 @@
 #include "render_data_store.h"
-
+#include "config.h"
 
 namespace renderer {
     render_data_store::render_data_store() {}
@@ -45,5 +45,36 @@ namespace renderer {
 
             variable_values[variables[i]["name"]] = variable_value;
         }
+    }
+
+    void render_data_store::load_shader( rapidjson::Value &json ) {
+        static std::string shader_dir = core_services::config::m_resource_dir + core_services::config::m_shader_dir;
+        shader_program new_program;
+
+        std::string shader_program_name = json["name"].GetString();
+
+        std::string vert_file_name = shader_dir + json["vert_shader"].GetString();
+        std::string frag_file_name = shader_dir + json["frag_shader"].GetString();
+
+        new_program.add_shader( GL_VERTEX_SHADER, vert_file_name );
+        new_program.add_shader( GL_FRAGMENT_SHADER, frag_file_name );
+
+        rapidjson::Value &geom_name = json["geom_shader"];
+        if( !geom_name.IsNull() ) {
+            std::string geom_file_name = shader_dir + geom_name.GetString();
+            new_program.add_shader( GL_GEOMETRY_SHADER, geom_file_name );
+        }
+
+        rapidjson::Value &tese_name = json["tese_shader"];
+        rapidjson::Value &tesc_name = json["tesc_shader"];
+        if( !tesc_name.IsNull() && !tese_name.IsNull() ) {
+            std::string tese_file_name = tese_name.GetString();
+            std::string tesc_file_name = tesc_name.GetString();
+
+            new_program.add_shader( GL_TESS_CONTROL_SHADER, tesc_file_name );
+            new_program.add_shader( GL_TESS_EVALUATION_SHADER, tese_file_name );
+        }
+
+        new_program.link_program();
     }
 }

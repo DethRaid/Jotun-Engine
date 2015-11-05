@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "SceneFileLoader.h"
+#include "config.h"
 
 namespace core_services {
     SceneFileLoader::SceneFileLoader() {}
@@ -24,7 +25,7 @@ namespace core_services {
             }
             sceneDoc.Parse( accum.c_str() );
 
-            std::cout << "Config: " << sceneDoc["config"]["resource_dir"].GetString() << "\n";
+            config::load_config( sceneDoc["config"] );
 
             std::cout << "Loaded scene\n";
 
