@@ -62,84 +62,85 @@
     ]
   },
 
+  "render_data": {
+    "material": {
+      "_comment": [
+        "Materials are required to have a name, fragmentshader, vertexshader, albedotex, normaltex,",
+        "and speculartex. They may have other attributes as needed, such as tessellation or",
+        "geometry shaders"
+      ],
+      "values": [
+        {
+          "name": "floor",
+          "shader_program": "basic_pbr",
+          "variables": [
+            {
+              "name": "albedo_tex",
+              "value": "floor_a.png",
+              "type": "texture"
+            },
+            {
+              "name": "normal_tex",
+              "value": "floor_n.png",
+              "type": "texture"
+            },
+            {
+              "name": "specular_tex",
+              "value": "floor_s.png",
+              "type": "texture"
+            }
+          ]
+        },
+        {
+          "name": "sphere_tess",
+          "shader_program": "basic_pbr",
+          "variables": [
+            {
+              "name": "albedo_tex",
+              "value": "sphere_a.png",
+              "type": "texture"
+            },
+            {
+              "name": "normal_tex",
+              "value": "sphere_n.png",
+              "type": "texture"
+            },
+            {
+              "name": "specular_tex",
+              "value": "sphere_s.png",
+              "type": "texture"
+            },
+            {
+              "name": "tess_tex",
+              "value": "sphere_t.png",
+              "type": "texture"
+            }
+          ]
+        }
+      ]
+    },
 
-  "material": {
-    "_comment": [
-      "Materials are required to have a name, fragmentshader, vertexshader, albedotex, normaltex,",
-      "and speculartex. They may have other attributes as needed, such as tessellation or",
-      "geometry shaders"
-    ],
-    "values": [
-      {
-        "name": "floor",
-        "shader_program": "basic_pbr",
-        "variables": [
-          {
-            "name": "albedo_tex",
-            "value": "floor_a.png",
-            "type": "texture"
-          },
-          {
-            "name": "normal_tex",
-            "value": "floor_n.png",
-            "type": "texture"
-          },
-          {
-            "name": "specular_tex",
-            "value": "floor_s.png",
-            "type": "texture"
-          }
-        ]
-      },
-      {
-        "name": "sphere_tess",
-        "shader_program": "basic_pbr",
-        "variables": [
-          {
-            "name": "albedo_tex",
-            "value": "sphere_a.png",
-            "type": "texture"
-          },
-          {
-            "name": "normal_tex",
-            "value": "sphere_n.png",
-            "type": "texture"
-          },
-          {
-            "name": "specular_tex",
-            "value": "sphere_s.png",
-            "type": "texture"
-          },
-          {
-            "name": "tess_tex",
-            "value": "sphere_t.png",
-            "type": "texture"
-          }
-        ]
-      }
-    ]
-  },
-
-  "shader_program": {
-    "_comment": [
-      "Holds all the shader programs that the Jotun Engine uses. They have a separate JSON",
-      "object mostly to make them easier to load. Note that shader_programs MUST have a vert",
-      "and frag shader. They may optionally have a geometry shader, tesselation evaluation",
-      "shader, and tessellation control shader. You must specify both tesselation shaders.",
-      "If you only provide one, then it'll be ignored. Don't say I didn't warn you"
-    ],
-    "values": [
-      {
-        "name": "basic_pbr",
-        "vert_shader": "static.vert",
-        "frag_shader": "basic_pbr.frag"
-      },
-      {
-        "name": "sphere_light",
-        "vert_shader": "static.vert",
-        "geom_shader": "gen_light.geom",
-        "frag_shader": "pbr_lighting.frag"
-      }
-    ]
+    "shader_program": {
+      "_comment": [
+        "Holds all the shader programs that the Jotun Engine uses. They have a separate JSON",
+        "object mostly to make them easier to load. Note that shader_programs MUST have a vert",
+        "and frag shader. They may optionally have a geometry shader, tesselation evaluation",
+        "shader, and tessellation control shader. You must specify both tesselation shaders.",
+        "If you only provide one, then it'll be ignored. Don't say I didn't warn you"
+      ],
+      "values": [
+        {
+          "name": "basic_pbr",
+          "vert_shader": "static.vert",
+          "frag_shader": "basic_pbr.frag"
+        },
+        {
+          "name": "sphere_light",
+          "vert_shader": "static.vert",
+          "geom_shader": "gen_light.geom",
+          "frag_shader": "pbr_lighting.frag"
+        }
+      ]
+    }
   }
 }

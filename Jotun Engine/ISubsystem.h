@@ -1,15 +1,17 @@
 #pragma once
 
-#include "component_loader.h"
-
 namespace core_services {
 
-    /*~\brief Interface for all the subsystems of the Jotunengine or games built with it*/
-    class ISubsystem {
-    public:
+    class engine;
 
-        /*!\brief Called when the engine is started*/
-        virtual void init() = 0;
+    /*~\brief Interface for all the subsystems of the Jotunengine or games built with it*/
+    class isubsystem {
+    public:
+        /*!\brief Called when the engine is started
+        
+        Allows this subsystem to register all its things. This method should handle all the interactions between this
+        class and any others which are necessary for this class to work.*/
+        virtual void init( engine * ) = 0;
 
         /*!\brief Called right after a scene file has been loaded*/
         virtual void on_load_scene() = 0;
@@ -28,8 +30,5 @@ namespace core_services {
 
         /*!\brief Called as the engine is closed*/
         virtual void shutdown() = 0;
-
-        /*!\brief Returns the ISceneLoader this subsystem uses to load all its data*/
-        virtual component_loader* get_data_loader() = 0;
     };
 }

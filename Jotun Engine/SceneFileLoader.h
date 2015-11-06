@@ -3,6 +3,7 @@
 #include "stdafx.h"
 
 #include "component_loader.h"
+#include "data_loader.h"
 
 namespace core_services {
 
@@ -14,7 +15,9 @@ namespace core_services {
          *
          * Loader functions have a void return type and take a single parameter, a rapidjson::Document*
          */
-        void register_scene_loader( component_loader *loader );
+        void register_component_loader( component_loader *loader );
+
+        void register_data_loader( std::string data_name, data_loader *loader );
 
         /*!\brief Loads the scene file with the given filename, calling the appropriate loader function
         
@@ -24,5 +27,6 @@ namespace core_services {
     private:
         rapidjson::Document sceneDoc;
         std::unordered_map<std::string, component_loader*> sceneCallbacks;
+        std::unordered_map<std::string, data_loader*> m_data_loaders;
     };
 }

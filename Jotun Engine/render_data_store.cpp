@@ -43,7 +43,7 @@ namespace renderer {
                 variable_value = get_gl_texture( variables[i]["value"].GetString() );
             }
 
-            variable_values[variables[i]["name"]] = variable_value;
+            variable_values[variables[i]["name"].GetString()] = variable_value;
         }
     }
 

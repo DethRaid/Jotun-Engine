@@ -129,6 +129,9 @@
     <ClCompile Include="config.cpp">
       <Filter>Source Files\Core Services</Filter>
     </ClCompile>
+    <ClCompile Include="data_loader.cpp">
+      <Filter>Source Files\Core Services\Interfaces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -208,6 +211,9 @@
     </ClInclude>
     <ClInclude Include="config.h">
       <Filter>Header Files\Core Services</Filter>
+    </ClInclude>
+    <ClInclude Include="data_loader.h">
+      <Filter>Header Files\Core Services\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

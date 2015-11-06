@@ -18,7 +18,7 @@ namespace core_services {
         ~engine();
 
         /* Initialization methods */
-        void register_subsystem( ISubsystem *newSubsystem );
+        void register_subsystem( isubsystem *newSubsystem );
         void load_scene( std::string sceneFileName );
 
         /* Run methods */
@@ -27,10 +27,12 @@ namespace core_services {
         /* Getters (and setters, if need be) */
         SceneFileLoader & get_scene_file_loader();
         transform_scene & get_transform_scene();
+
+        void set_window( iwindow *new_window );
     private:
         SceneFileLoader fileLoader;
         transform_scene transformScene;
-        std::vector<ISubsystem*> subsystems;
+        std::vector<isubsystem*> subsystems;
         irender_system *m_render_system;
         iphysics_system *physicsSystem;
 

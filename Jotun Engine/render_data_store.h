@@ -2,22 +2,24 @@
 
 #include "render_data.h"
 #include "render_components.h"
+#include "data_loader.h"
 
 namespace renderer {
-    class render_data_store {
+    /*!\brief Loads all the render data
+    
+    The Render Data is all stored in the render_data object in the scene file json. This class handles all the data ni that object*/
+    class render_data_store : public core_services::data_loader {
     public:
         render_data_store();
         ~render_data_store();
 
         GLint * get_gl_texture( const std::string &name );
 
-        /* Methods for shaders */
-        shader_program get_program_with_shaders( std::string &vert_name, std::string &frag_name );
-        shader_program get_program_with_shaders( std::string &vert_name, std::string &frag_name, std::string &geom_name );
-        shader_program get_program_with_shaders( std::string &vert_name, std::string &frag_name, std::string &tese_name, std::string &tesc_name );
-        shader_program get_program_with_shaders( std::string &vert_name, std::string &frag_name, std::string &geom_name, std::string &tese_name, std::string &tesc_name );
+        shader_program get_shader_program( std::string &name );
 
-        //TODO: Write a much of methods to handle loading loading each data type, and figure out how to pass them around
+        /* Overriden from data_loader */
+        virtual void load_data( rapidjson::Value &json );
+
     private:
         std::vector<renderable_mesh> m_mesh_components;
         std::vector<light> m_lights;

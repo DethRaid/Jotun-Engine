@@ -7,8 +7,12 @@ namespace core_services {
 
     SceneFileLoader::~SceneFileLoader() {}
 
-    void SceneFileLoader::register_scene_loader( component_loader *loader ) {
+    void SceneFileLoader::register_component_loader( component_loader *loader ) {
         sceneCallbacks.emplace( loader->get_handled_type(), loader );
+    }
+
+    void SceneFileLoader::register_data_loader( std::string data_name, data_loader *loader ) {
+        m_data_loaders.emplace( data_name, loader );
     }
 
     void SceneFileLoader::loadScene( std::string &sceneFileName ) {

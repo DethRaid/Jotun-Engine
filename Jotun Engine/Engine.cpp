@@ -7,23 +7,21 @@ namespace core_services {
     engine::engine() {
         logger = el::Loggers::getLogger( "engine" );
 
-        fileLoader.register_scene_loader( &transformScene );
+        fileLoader.register_component_loader( &transformScene );
 
         logger->debug( "Added transform_scene_loader to file loader" );
 
         // Initialize the rendering and physics systems
-        m_render_system = new renderer::render_system_gl45();
-        //register_subsystem( m_render_system );
-        m_main_window = m_render_system->get_window();
+        m_render_system = new renderer::render_system_gl45( this );
 
         logger->info( "Initialized renderer" );
     }
 
     engine::~engine() {}
 
-    void engine::register_subsystem( ISubsystem *newSubsystem ) {
-        subsystems.push_back( newSubsystem );
-        fileLoader.register_scene_loader( newSubsystem->get_data_loader() );
+    void engine::register_subsystem( isubsystem *new_subsystem ) {
+        new_subsystem->init( this );
+        subsystems.push_back( new_subsystem );
     }
 
     void engine::load_scene( std::string sceneFileName ) {
@@ -61,11 +59,11 @@ namespace core_services {
     }
 
     void engine::doUpdateAndRender() {
-        for( ISubsystem *sub : subsystems ) {
+        for( isubsystem *sub : subsystems ) {
             sub->update();
         }
 
-        for( ISubsystem *sub : subsystems ) {
+        for( isubsystem *sub : subsystems ) {
             sub->on_pre_render();
         }
 
@@ -78,7 +76,7 @@ namespace core_services {
         // Consume frame time
         for( frameTime; frameTime > std::chrono::duration<int, std::milli>( 0 ); frameTime -= Time::fixedTimeStep ) {
             physicsSystem->do_physics();
-            for( ISubsystem *sub : subsystems ) {
+            for( isubsystem *sub : subsystems ) {
                 sub->fixed_update();
             }
         }

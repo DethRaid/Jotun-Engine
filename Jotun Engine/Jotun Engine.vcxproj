@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="config.cpp" />
+    <ClCompile Include="data_loader.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="render_components.cpp" />
@@ -40,6 +41,7 @@
   <ItemGroup>
     <ClInclude Include="Component.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="data_loader.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="glad\glad.h" />
     <ClInclude Include="render_data.h" />
