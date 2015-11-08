@@ -20,8 +20,11 @@ namespace renderer {
         } else if( var_type == "mat4" ) {
             m_type = MAT4;
 
+        } else if( var_type == "sampler2D" ) {
+            m_type = TEXTURE;
+
         } else {
-            std::cerr << "Unsupported variable type " << var_type << ". Senpai fix plz\n";
+            LOG( ERROR ) << "Unsupported variable type " << var_type << ". Senpai fix plz\n";
         }
     }
 

@@ -40,8 +40,6 @@ namespace core_services {
 
         std::chrono::system_clock::duration frameTime;
 
-        el::Logger *logger;
-
         void tick();
         void doUpdateAndRender();
         void doPhysics();

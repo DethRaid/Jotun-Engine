@@ -34,7 +34,5 @@ namespace renderer {
     private:
         sdl_window *m_window;
         render_data_store m_data_store;
-
-        el::Logger *logger;
     };
 }

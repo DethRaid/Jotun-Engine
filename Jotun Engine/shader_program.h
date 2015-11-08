@@ -6,8 +6,23 @@
 #include <fstream>
 
 namespace renderer {
-    class shader_program_already_linked_exception : public std::exception {};
-    class program_linking_failure_exception : public std::exception {};
+    class shader_program_already_linked_exception : public std::exception {
+    public:
+        virtual const char * what() noexcept;
+    };
+
+    class program_linking_failure_exception : public std::exception {
+    public:
+        virtual const char * what() noexcept;
+    };
+
+    class shader_file_not_found_exception : public std::exception {
+    public:
+        shader_file_not_found_exception( std::string &file_name );
+        virtual const char * what() noexcept;
+    private:
+        std::string m_msg;
+    };
 
     class shader_program {
     public:

@@ -18,8 +18,6 @@ namespace renderer {
         SDL_Window *m_window;
         SDL_GLContext m_context;
 
-        el::Logger *logger;
-
         void check_sdl_error( int line = -1 );
     };
 }

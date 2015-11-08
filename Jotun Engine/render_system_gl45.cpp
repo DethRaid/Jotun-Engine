@@ -2,13 +2,9 @@
 
 namespace renderer {
     render_system_gl45::render_system_gl45( core_services::engine *engine ) {
-        logger = el::Loggers::getLogger( "render_system_gl45" );
-
         m_window = new sdl_window( 4, 5 );
 
         gladLoadGL();
-
-        logger->info( "Initialized window with OpenGL version %d %d\n", GLVersion.major, GLVersion.minor );
 
         init( engine );
     }

@@ -3,18 +3,16 @@
 
 namespace renderer {
     sdl_window::sdl_window( int gl_version_major, int gl_version_minor ) {
-        logger = el::Loggers::getLogger( "sdl_window" );
-
-        std::cout<<"Beginning window initialization with OpenGL version " <<gl_version_major <<"." <<gl_version_minor <<"\n";
+        LOG( INFO ) << "Beginning window initialization with OpenGL version " << gl_version_major << "." << gl_version_minor << "\n";
 
         int err;
         if( (err = SDL_Init( SDL_INIT_VIDEO )) < 0 ) {
-            std::cerr<<"SDL video initialization failed with error code " <<err <<"\n";
+            LOG( FATAL ) << "SDL video initialization failed with error code " << err << "\n";
             check_sdl_error( __LINE__ );
             return;
         }
 
-        std::cout << "SDL Initialized\n";
+        LOG( DEBUG ) << "SDL Initialized\n";
 
         SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, gl_version_major );
         SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, gl_version_minor );
@@ -25,22 +23,22 @@ namespace renderer {
 
         if( !(m_window = SDL_CreateWindow( "SDL Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                            512, 512, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN )) ) {
-            std::cerr << "GLFW window creation failed\n";
+            LOG( FATAL ) << "GLFW window creation failed\n";
             return;
         }
 
-        std::cout << "SDL window created\n";
+        LOG( DEBUG ) << "SDL window created\n";
 
         check_sdl_error( __LINE__ );
 
         m_context = SDL_GL_CreateContext( m_window );
         check_sdl_error( __LINE__ );
-        std::cout << "SDL OpenGL context created\n";
+        LOG( INFO ) << "SDL OpenGL context created\n";
 
         // Enable vsync
         SDL_GL_SetSwapInterval( 1 );
 
-        std::cout << "Window initialization complete\n";
+        LOG( INFO ) << "Window initialization complete\n";
     }
 
     sdl_window::~sdl_window() {
@@ -60,9 +58,9 @@ namespace renderer {
         std::string error = SDL_GetError();
         
         if( error.size() > 0 ) {
-            std::cerr << "SDL Error: " << error << "\n";
+            LOG( ERROR ) << "SDL Error: " << error << "\n";
             if( line != -1 ) {
-                std::cerr << "\tAt line " << line << "\n";
+                LOG( ERROR ) << "\tAt line " << line << "\n";
             }
             SDL_ClearError();
         }

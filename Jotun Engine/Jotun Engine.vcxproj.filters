@@ -52,6 +52,12 @@
     <Filter Include="Header Files\Renderer\loaders">
       <UniqueIdentifier>{74488f50-553f-4c79-9039-75a0018366d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Core Services\Logger">
+      <UniqueIdentifier>{b4ab3a6b-1dda-4c72-8945-9def59a885d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core Services\Logger">
+      <UniqueIdentifier>{a7aa465d-0913-4fe5-b19d-068d02b0f6c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component.cpp">
@@ -131,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="data_loader.cpp">
       <Filter>Source Files\Core Services\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,9 +226,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test.frag">
-      <Filter>Resource Files\shaders</Filter>
-    </None>
     <None Include="logging.conf">
       <Filter>Resource Files</Filter>
     </None>
@@ -228,6 +234,15 @@
     </None>
     <None Include="SceneFileSchema.json">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Debug\res\shd\static.vert">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="res\shd\basic_pbr.frag">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="res\shd\pbr_lighting.frag">
+      <Filter>Resource Files\shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

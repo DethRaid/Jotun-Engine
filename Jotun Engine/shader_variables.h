@@ -12,6 +12,7 @@ namespace renderer {
             VEC4,
             MAT3,
             MAT4,
+            TEXTURE,
         };
 
         // Added so tuples won't yell at me
@@ -24,6 +25,8 @@ namespace renderer {
         void upload_data( glm::vec4 &data );
         void upload_data( glm::mat3 &data );
         void upload_data( glm::mat4 &data );
+
+        // TODO: method for uploading textures
 
         void set_gl_name( GLuint gl_name );
         type get_type();

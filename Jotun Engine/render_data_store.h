@@ -13,9 +13,9 @@ namespace renderer {
         render_data_store();
         ~render_data_store();
 
-        GLint * get_gl_texture( const std::string &name );
+        GLuint get_gl_texture( const std::string &name );
 
-        shader_program get_shader_program( std::string &name );
+        shader_program get_shader_program( const std::string &name );
 
         /* Overriden from data_loader */
         virtual void load_data( rapidjson::Value &json );

@@ -137,7 +137,6 @@
         {
           "name": "sphere_light",
           "vert_shader": "static.vert",
-          "geom_shader": "gen_light.geom",
           "frag_shader": "pbr_lighting.frag"
         }
       ]

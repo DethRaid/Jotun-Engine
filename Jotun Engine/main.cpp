@@ -3,13 +3,22 @@
  * the other systems of the Jotun engine
  */
 
-#include <string>
-#include "engine.h"
-#include "shader_program.h"
+#include "stdafx.h"
+#include "Engine.h"
 
 INITIALIZE_EASYLOGGINGPP
 
 int main( int argc, char *argv[] ) {
+    // Configure the logger
+    el::Configurations conf( "logging.conf" );
+
+    // Turn debug and trace off in release builds
+#ifndef NDEBUG
+    conf.parseFromText( "*DEBUG:\n ENABLED=false" );
+#endif
+
+    el::Loggers::reconfigureAllLoggers( conf );
+
     std::string fileName = "SampleScene.json";
 
     core_services::engine engine;

@@ -101,6 +101,8 @@ namespace renderer {
 
         // No errors during linking? Let's get locations for our variables
         get_variable_locations();
+
+        LOG( INFO ) << "Program " <<m_gl_name <<" linked successfully\n";
     }
 
     std::string shader_program::read_shader_file( std::string& filename ) {
@@ -131,17 +133,16 @@ namespace renderer {
 
                     var_name = buf.substr( start_pos, end_pos - start_pos );
 
-                    std::cout << "Found uniform '" << var_type << "' '" << var_name << "'\n";
+                    LOG( TRACE ) << "Found uniform '" << var_type << "' '" << var_name << "'\n";
 
                     shader_variable var( var_type );
                     m_variables.emplace( var_name, var );
                 }
             }
-            std::cout << "Shader source: \n" << accum << "\n";
             return accum;
+        } else {
+            throw shader_file_not_found_exception( filename );
         }
-
-        return std::string( "" );
     }
 
     bool shader_program::check_for_shader_errors( GLuint shader_to_check ) {
@@ -156,7 +157,7 @@ namespace renderer {
             std::vector<GLchar> error_log( log_size );
             glGetShaderInfoLog( shader_to_check, log_size, &log_size, &error_log[0] );
 
-            std::cerr << "Error compiling shader: \n" << &error_log[0] << "\n";
+            LOG( ERROR ) << "Error compiling shader: \n" << &error_log[0] << "\n";
 
             glDeleteShader( shader_to_check );
 
@@ -171,7 +172,7 @@ namespace renderer {
             int location = glGetUniformLocation( m_gl_name, var.first.c_str() );
             var.second.set_gl_name( location );
 
-            std::cout << "Set location of variable " << var.first << "to" << location <<"\n";
+            LOG( TRACE ) << "Set location of variable " << var.first << "to" << location <<"\n";
         }
     }
 
@@ -186,11 +187,26 @@ namespace renderer {
             GLchar * info_log = (GLchar*)malloc( log_length * sizeof( GLchar) );
             glGetProgramInfoLog( m_gl_name, log_length, &log_length, info_log );
 
-            std::cerr << "Error linking program " << m_gl_name << ":\n" << info_log << "\n";
+            LOG( ERROR ) << "Error linking program " << m_gl_name << ":\n" << info_log << "\n";
 
             return true;
         }
 
         return false;
+    }
+
+    shader_file_not_found_exception::shader_file_not_found_exception( std::string &file_name ) :
+        m_msg( "Could not open shader file " + file_name ) {}
+
+    const char * shader_file_not_found_exception::what() noexcept {
+        return m_msg.c_str();
+    }
+    
+    const char * shader_program_already_linked_exception::what() noexcept {
+        return "Program was already linked";
+    }
+
+    const char * program_linking_failure_exception::what() noexcept {
+        return "Program failed to link";
     }
 }

@@ -16,6 +16,7 @@
     <ClCompile Include="data_loader.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="render_components.cpp" />
     <ClCompile Include="render_data.cpp" />
     <ClCompile Include="render_data_store.cpp" />
@@ -68,10 +69,12 @@
     <ClInclude Include="TransformScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Debug\res\shd\static.vert" />
     <None Include="logging.conf" />
+    <None Include="res\shd\basic_pbr.frag" />
+    <None Include="res\shd\pbr_lighting.frag" />
     <None Include="SampleScene.json" />
     <None Include="SceneFileSchema.json" />
-    <None Include="test.frag" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{80775B51-CF38-4035-9166-C28B96526FF4}</ProjectGuid>

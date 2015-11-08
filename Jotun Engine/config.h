@@ -11,9 +11,9 @@ namespace core_services {
     namespace config {
         void load_config( rapidjson::Value &json );
 
-        std::string m_resource_dir;
-        std::string m_texture_dir;
-        std::string m_mesh_dir;
-        std::string m_shader_dir;
+        extern std::string m_resource_dir;
+        extern std::string m_texture_dir;
+        extern std::string m_mesh_dir;
+        extern std::string m_shader_dir;
     };
 }

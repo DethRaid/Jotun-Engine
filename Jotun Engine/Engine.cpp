@@ -5,16 +5,12 @@
 
 namespace core_services {
     engine::engine() {
-        logger = el::Loggers::getLogger( "engine" );
-
         fileLoader.register_component_loader( &transformScene );
-
-        logger->debug( "Added transform_scene_loader to file loader" );
-
+        
         // Initialize the rendering and physics systems
         m_render_system = new renderer::render_system_gl45( this );
 
-        logger->info( "Initialized renderer" );
+        LOG( INFO ) << "Initialized renderer\n";
     }
 
     engine::~engine() {}
@@ -39,6 +35,10 @@ namespace core_services {
 
     transform_scene & engine::get_transform_scene() {
         return transformScene;
+    }
+
+    void engine::set_window( iwindow *window ) {
+        m_main_window = window;
     }
 
     void engine::tick() {
