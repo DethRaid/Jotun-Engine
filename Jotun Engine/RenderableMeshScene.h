@@ -4,8 +4,7 @@
 #include "IScene.h"
 
 
-class RenderableMeshScene //:
-    //public IScene<RenderableMesh> 
+class RenderableMeshScene
 {
 public:
     RenderableMeshScene();

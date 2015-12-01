@@ -4,6 +4,18 @@
 #include "shader_program.h"
 
 namespace renderer {
+    /*!\brief Represents a single mesh in the scene
+
+    Note that all static meshes are stored in a sinble VBO. Thus, a \class mesh
+    is really just a pointer to the place in that VBO where it's stored
+    */
+    class mesh {
+    private:
+        std::string m_name;
+        unsigned int m_start_index;
+        unsigned int m_num_elements;
+    };
+
     class material {
     public:
         material( std::string& name, shader_program *program );
